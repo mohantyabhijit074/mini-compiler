@@ -20,16 +20,11 @@ int* line = &yylineno;
 
 %%
 
-"//".*		{;}
-
-"/*"[^\*]*([\*][^/]*)*"*/"    {;}
-
-
-"#include"" "*("<"[^">"][^"\n"]+">")    { ;}
-
-"#include"" "*("\""[^"\""][^"\n"]+"\"") { ;}
-
-"#define"" ".* 	{ ;}
+"#include"(.)*"\n" {fprintf(yyout, "%s", "");}
+"using"(.)*"\n" {fprintf(yyout, "%s", "");}
+"#define"(.)*"\n" {fprintf(yyout,"%s","");}			
+"/*"+([^*]|\*+[^/])*\*+\/.*\n			{fprintf(yyout,"%s","");printf("\n The Comment Present in The input file - %s\n", yytext);}
+"//"(.)*(\n)		{fprintf(yyout,"%s", "");}
 
 
 "main" 		{ line_flag = 1; fprintf(fp_lex,"<%s,T_main>\n",yytext);   fprintf(fp,"%s",yytext); return T_main;}
@@ -46,11 +41,7 @@ int* line = &yylineno;
 ("double\*")|(("double\*")" "*\*)  { line_flag = 1; fprintf(fp,"%s",yytext);}
 
 "return" 	{ line_flag = 1; fprintf(fp_lex,"<%s,T_return>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_return;}
-"if" 		{ line_flag = 1; fprintf(fp_lex,"<%s,T_if>\n",yytext)      ;fprintf(fp,"%s",yytext); return T_if;}
-"else" 		{ line_flag = 1; fprintf(fp_lex,"<%s,T_else>\n",yytext)    ;fprintf(fp,"%s",yytext); return T_else;}
 "for" 		{ line_flag = 1; fprintf(fp_lex,"<%s,T_for>\n",yytext)     ;fprintf(fp,"%s",yytext); return T_for;}
-"do"		{ line_flag = 1; fprintf(fp_lex,"<%s,T_do>\n",yytext)      ;fprintf(fp,"%s",yytext); return T_do;}
-"while" 	{ line_flag = 1; fprintf(fp_lex,"<%s,T_while>\n",yytext)   ;fprintf(fp,"%s",yytext); return T_while;}
 "break" 	{ line_flag = 1; fprintf(fp_lex,"<%s,T_break>\n",yytext)   ;fprintf(fp,"%s",yytext); return T_break;}
 "continue" 	{ line_flag = 1; fprintf(fp_lex,"<%s,T_continue>\n",yytext);fprintf(fp,"%s",yytext); return T_continue;}
 "cout"	    { line_flag = 1; fprintf(fp_lex,"<%s,T_cout>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_cout;}	
