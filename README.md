@@ -4,4 +4,8 @@
  - [x] Symbol Table Generation
  - [x] Syntax Analysis
  - [x] Removal Of comments
+ - commands
+   - make -f make.mk
+   - ./a.out < preprocessed.cpp 
+   
         
