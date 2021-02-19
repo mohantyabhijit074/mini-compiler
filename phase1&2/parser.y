@@ -11,11 +11,9 @@ FILE *fp_lex;
 FILE *fp_symtbl;
 char current_scope[30];
 int  count[30]={0};
-int inside_function=0;
 
 struct symbol_table{
 	
-	char  attr[30];
 	char  name[31];
 	char  scope[30];
 	int   line; 
@@ -45,7 +43,7 @@ symtbl* addTemp(char* id_name);
 	struct symbol_table* ptr;
 }
 
-%token T_double T_main T_return T_void T_break T_continue T_string T_fltEval T_for T_cout T_ostream T_switch T_case T_colon T_switch_break T_incr T_decr
+%token T_double T_main T_return T_void T_break T_continue T_string T_fltEval T_for T_cout T_ostream T_switch T_case T_colon T_incr T_decr T_default
 %token T_relop
 %token <ival> T_intval
 %token <fval> T_fltval
@@ -74,14 +72,14 @@ start : main
 main   : T_void T_main '(' ')' block
 	   | T_int T_main '(' ')' block_r
 	   | decl main
-	   | function {inside_function=0;} main 
+	   | function main 
 
            ;
 
 function   : T_void  T_id '(' params ')' block   { $2->data_type=3; strcpy($2->scope,"global");}
-	   | T_int   T_id '(' params ')' block_r { $2->data_type=3; strcpy($2->scope,"global");}
-	   | T_float T_id '(' params ')' block_r { $2->data_type=3; strcpy($2->scope,"global");}
-	   | T_char  T_id '(' params ')' block_r { $2->data_type=3; strcpy($2->scope,"global");}
+	   | T_int   T_id '(' params ')' block_r { $2->data_type=0; strcpy($2->scope,"global");}
+	   | T_float T_id '(' params ')' block_r { $2->data_type=1; strcpy($2->scope,"global");}
+	   | T_char  T_id '(' params ')' block_r { $2->data_type=2; strcpy($2->scope,"global");}
 	   ;
 
 params     : datatype T_id {if($1==0){assignInt($2,$1,0);} if($1==2){assignChar($2,$1,0);} if($1==1){assignFloat($2,$1,0);}}		
@@ -103,7 +101,7 @@ returnval  : T_intval | T_fltval | T_charval;
 statements : statements statement
 	   | statement 
            ;
-statement  : decl | block | expression | print | switch | case | for_st | ';' ;
+statement  : decl | block | expression | print | switch | case | for_st | default |';' ;
 
 print      : T_cout T_ostream T_string ';'  | T_cout T_ostream T_string T_ostream T_string ';' ;
 
@@ -112,15 +110,22 @@ switch : T_switch '(' values ')' block;
 values : T_id|T_char|T_string;
 
 
-case : T_case T_intval T_colon  block loop_keywrd
-	| T_case T_intval T_colon  block
+case : T_case T_intval T_colon 
+	| loop_keywrd
     ;
+
+default : T_default T_colon
+		; 
 
 for_st : T_for '(' inside_for ')' block;
     ;
 
 inside_for : Assign_int ';' condition ';' una_op
     |';'';'';'
+	| ';' condition ';' una_op
+	|';'';'una_op 
+	|Assign_int ';'';' una_op
+	| Assign_int ';' condition ';'
     ;
 
 una_op : T_id T_incr
@@ -310,55 +315,56 @@ E :      E '+' E {
 		   printf("Evaluating /\n");
 		   tmp=addTemp("tmp");
 
-                   if(($1->data_type)!=($3->data_type)) {
+                   	if(($1->data_type)!=($3->data_type)) {
                             tmp->data_type=1;
                             printf("Datatype mismatch in line : %d\nTrying to perform error correction\n",*line);
-                            if(($3->data_type)==1) {
-				    if($1->val.i!=0)
-                                   	 tmp->val.f=($3->val.f)/($1->val.i);
-				    else{
-					printf("\033[1;31m");
-					printf("\nerror : ");
-					printf("\033[0m");
-					printf("Line :%d Division By ZERO .\n\n",*line);
-					}
+                            if(($1->data_type)==1) 
+							{
+								if($3->val.i!=0)
+												tmp->val.f=($1->val.f)/($3->val.i);
+								else{
+								printf("\033[1;31m");
+								printf("\nerror : ");
+								printf("\033[0m");
+								printf("Line :%d Division By ZERO .\n\n",*line);
+								}
                             }
                             else {
-				    if($1->val.f!=0)
-                                   	 tmp->val.f=($3->val.i)/($1->val.f);
-				    else{
-					printf("\033[1;31m");
-					printf("\nerror : ");
-					printf("\033[0m");
-					printf("Line :%d Division By ZERO .\n\n",*line);
-					}
+								if($3->val.f!=0)
+												tmp->val.f=($1->val.i)/($3->val.f);
+								else{
+								printf("\033[1;31m");
+								printf("\nerror : ");
+								printf("\033[0m");
+								printf("Line :%d Division By ZERO .\n\n",*line);
+								}
                             }
-                            $1->val.f=tmp->val.f;
+                            $3->val.f=tmp->val.f;
                     }
                     else {
                             if($1->data_type==0) {
                                     tmp->data_type=0;
-				    if($1->val.i!=0)
-                                   	 {tmp->val.i=($3->val.i)/($1->val.i);$1->val.i=tmp->val.i;}
+							if($3->val.i!=0)
+											{tmp->val.i=($1->val.i)/($3->val.i);$3->val.i=tmp->val.i;}
 
-				    else{
-					printf("\033[1;31m");
-					printf("\nerror : ");
-					printf("\033[0m");
-					printf("Line :%d Division By ZERO .\n\n",*line);
-					}
-                                    
-                            }
-                            else if($1->data_type==1) {
-                            	    tmp->data_type=1;
-				    if($1->val.i!=0)
-                                   	 {tmp->val.f=($3->val.f)/($1->val.f);$1->val.f=tmp->val.f;}
-				    else{
-					printf("\033[1;31m");
-					printf("\nerror : ");
-					printf("\033[0m");
-					printf("Line :%d Division By ZERO .\n\n",*line);
-					}                                    
+							else{
+							printf("\033[1;31m");
+							printf("\nerror : ");
+							printf("\033[0m");
+							printf("Line :%d Division By ZERO .\n\n",*line);
+							}
+											
+									}
+									else if($1->data_type==1) {
+											tmp->data_type=1;
+							if($1->val.i!=0)
+											{tmp->val.f=($3->val.f)/($1->val.f);$1->val.f=tmp->val.f;}
+							else{
+							printf("\033[1;31m");
+							printf("\nerror : ");
+							printf("\033[0m");
+							printf("Line :%d Division By ZERO .\n\n",*line);
+							}                                    
 					
                             }
                             else
@@ -628,10 +634,7 @@ void assignFloat(symtbl *id,int type,float val){
 void addsym(symtbl* sym, char* id_name){
 	printf(" >> adding symbol '%s'..\n",id_name);
 	strcpy(sym->name,id_name);
-	if(inside_function ==1)
-		{strcpy(sym->scope,"NA");}
-	else
-		strcpy(sym->scope,current_scope);
+	strcpy(sym->scope,current_scope);
 	sym->data_type = -1;
 	sym->line      = *line;
 	sym->next      = NULL;
@@ -737,13 +740,13 @@ int main(){
 	printf("\033[1;32m");
 	printf("\n\nLex and Parser started..\n\n");
 	printf("\033[0m");
-	fp        = fopen("output_phase2.cpp","w");
+	fp        = fopen("output_compiler.cpp","w");
 	fp_symtbl = fopen("symbol_table.txt","w");
 	fp_lex    = fopen("tokens.txt","w"); 
 	fprintf(fp_lex,"\n\t\t TOKENS LIST\n\n") ;
 	
 	yyparse();
-    yylex();
+
 	fclose(fp);
 	fclose(fp_symtbl);
 	fclose(fp_lex);

@@ -10,7 +10,6 @@ extern FILE * fp;
 extern FILE * fp_lex;
 extern char current_scope[30]={'1','\0'};
 extern int count[30];
-extern int inside_function;
 int scope_var=0;
 
 int* line = &yylineno;
@@ -23,7 +22,7 @@ int* line = &yylineno;
 "#include"(.)*"\n" {fprintf(yyout, "%s", "");}
 "using"(.)*"\n" {fprintf(yyout, "%s", "");}
 "#define"(.)*"\n" {fprintf(yyout,"%s","");}			
-"/*"+([^*]|\*+[^/])*\*+\/.*\n			{fprintf(yyout,"%s","");printf("\n The Comment Present in The input file - %s\n", yytext);}
+"/*"+([^*]|\*+[^/])*\*+\/.*\n			{fprintf(yyout,"%s","");printf("\n The Comment Present in The input file - \n%s\n", yytext);}
 "//"(.)*(\n)		{fprintf(yyout,"%s", "");}
 
 
@@ -47,7 +46,7 @@ int* line = &yylineno;
 "cout"	    { line_flag = 1; fprintf(fp_lex,"<%s,T_cout>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_cout;}	
 "switch"	{ line_flag = 1; fprintf(fp_lex,"<%s,T_switch>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_switch;}	
 "case"	    { line_flag = 1; fprintf(fp_lex,"<%s,T_case>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_case;}	
-
+"default"    { line_flag = 1; fprintf(fp_lex,"<%s,T_default>\n",yytext)  ;fprintf(fp,"%s",yytext); return T_default;} 
 
 
 
@@ -87,7 +86,7 @@ int* line = &yylineno;
 				scope_var++;
 				if(scope_var==1 )
 					{current_scope[0]='1'; current_scope[1]='\0'; 
-					if(inside_function==1){scope_var=0;}}
+					}
 				else{
 				int index = strlen(current_scope);
 				if(index==1)
@@ -96,7 +95,7 @@ int* line = &yylineno;
 							count[i]=0;
 					}
 				current_scope[index]='.';
-				count[index]++;
+				count[index]=1;
 				current_scope[index+1]=count[index] + '0';
 				current_scope[index+2]='\0';
 				}
