@@ -1,0 +1,130 @@
+		Abstract Syntax Tree:
+
+
+Root: Main
+Children: int Statement 
+
+
+Root: Statement
+Children: Assignment_expression Statement 
+
+
+Root: Assignment_expression
+Children: int = 
+
+
+Root: =
+Children: a + 
+
+
+Root: +
+Children: 10 / 
+
+
+Root: /
+Children: 5 4 
+
+
+Root: Statement
+Children: Assignment_expression Statement 
+
+
+Root: Assignment_expression
+Children: int = 
+
+
+Root: =
+Children: b - 
+
+
+Root: -
+Children: * 80 
+
+
+Root: *
+Children: 12 7 
+
+
+Root: Statement
+Children: Assignment_expression Statement 
+
+
+Root: Assignment_expression
+Children: int = 
+
+
+Root: =
+Children: c + 
+
+
+Root: +
+Children: * 1 
+
+
+Root: *
+Children: * 3 
+
+
+Root: *
+Children: 10 2 
+
+
+Root: Statement
+Children: Statement Statement 
+
+
+Root: Statement
+Children: Assignment_expression    
+
+
+Root: Assignment_expression
+Children: int = 
+
+
+Root: =
+Children: d * 
+
+
+Root: *
+Children: 10 30 
+
+
+Root: Statement
+Children: FOR Statement 
+
+
+Root: FOR
+Children: int < 
+
+
+Root: <
+Children: i 10 
+
+
+Root: Statement
+Children: Switch    
+
+
+Root: Switch
+Children: c Cases 
+
+
+Root: Cases
+Children: Case Case 
+
+
+Root: Case
+Children: 1 Statement 
+
+
+Root: Statement
+Children: Break    
+
+
+Root: Case
+Children: 2 Statement 
+
+
+Root: Statement
+Children: Break    
+

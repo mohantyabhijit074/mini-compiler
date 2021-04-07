@@ -1,0 +1,13 @@
+
+
+Symbol Table: 
+Token: a, Type: int, Size: 4, Line Number: 4, Scope: 1
+ 
+Token: b, Type: int, Size: 4, Line Number: 5, Scope: 1
+ 
+Token: c, Type: int, Size: 4, Line Number: 6, Scope: 1
+ 
+Token: d, Type: int, Size: 4, Line Number: 8, Scope: 2
+ 
+Token: i, Type: int, Size: 4, Line Number: 10, Scope: 1
+ 
