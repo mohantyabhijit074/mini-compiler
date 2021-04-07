@@ -7,5 +7,13 @@
  - commands
    - make -f make.mk
    - ./a.out < preprocessed.cpp 
-   
+ 
+## Phase 3 ##
+ - [x] Abstract syntax tree Generation
+ - [x] updated symbol table generation
+
+## Phase 4 ##
+- [x] Intermediate code generation
+- [x] Optimized code generation
+
         
