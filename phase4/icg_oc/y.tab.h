@@ -58,46 +58,43 @@ extern int yydebug;
     T_CLBRACE = 264,
     T_CONTINUE = 265,
     T_BREAK = 266,
-    T_IF = 267,
-    T_ELSE = 268,
-    T_WHILE = 269,
-    T_POW = 270,
-    T_OPEN = 271,
-    T_CLOSE = 272,
-    T_COMMENT = 273,
-    T_SQ_OPEN = 274,
-    T_SQ_CLOSE = 275,
-    T_INT = 276,
-    T_FLOAT = 277,
-    T_CHAR = 278,
-    T_ID = 279,
-    T_NUM = 280,
-    T_PLUS = 281,
-    T_MINUS = 282,
-    T_MULT = 283,
-    T_DIV = 284,
-    T_AND = 285,
-    T_OR = 286,
-    T_LESS = 287,
-    T_GREAT = 288,
-    T_LESEQ = 289,
-    T_GRTEQ = 290,
-    T_NOTEQ = 291,
-    T_EQEQ = 292,
-    T_ASSIGN = 293,
-    T_SPLUS = 294,
-    T_SMINUS = 295,
-    T_SMULT = 296,
-    T_SDIV = 297,
-    T_INC = 298,
-    T_DEC = 299,
-    T_SWITCH = 300,
-    T_FOR = 301,
-    T_MAIN = 302,
-    T_RETURN = 303,
-    T_DEFAULT = 304,
-    T_CASE = 305,
-    T_COLON = 306
+    T_POW = 267,
+    T_OPEN = 268,
+    T_CLOSE = 269,
+    T_COMMENT = 270,
+    T_SQ_OPEN = 271,
+    T_SQ_CLOSE = 272,
+    T_INT = 273,
+    T_FLOAT = 274,
+    T_CHAR = 275,
+    T_ID = 276,
+    T_NUM = 277,
+    T_PLUS = 278,
+    T_MINUS = 279,
+    T_MULT = 280,
+    T_DIV = 281,
+    T_AND = 282,
+    T_OR = 283,
+    T_LESS = 284,
+    T_GREAT = 285,
+    T_LESEQ = 286,
+    T_GRTEQ = 287,
+    T_NOTEQ = 288,
+    T_EQEQ = 289,
+    T_ASSIGN = 290,
+    T_SPLUS = 291,
+    T_SMINUS = 292,
+    T_SMULT = 293,
+    T_SDIV = 294,
+    T_INC = 295,
+    T_DEC = 296,
+    T_SWITCH = 297,
+    T_FOR = 298,
+    T_MAIN = 299,
+    T_RETURN = 300,
+    T_DEFAULT = 301,
+    T_CASE = 302,
+    T_COLON = 303
   };
 #endif
 /* Tokens.  */
@@ -110,53 +107,52 @@ extern int yydebug;
 #define T_CLBRACE 264
 #define T_CONTINUE 265
 #define T_BREAK 266
-#define T_IF 267
-#define T_ELSE 268
-#define T_WHILE 269
-#define T_POW 270
-#define T_OPEN 271
-#define T_CLOSE 272
-#define T_COMMENT 273
-#define T_SQ_OPEN 274
-#define T_SQ_CLOSE 275
-#define T_INT 276
-#define T_FLOAT 277
-#define T_CHAR 278
-#define T_ID 279
-#define T_NUM 280
-#define T_PLUS 281
-#define T_MINUS 282
-#define T_MULT 283
-#define T_DIV 284
-#define T_AND 285
-#define T_OR 286
-#define T_LESS 287
-#define T_GREAT 288
-#define T_LESEQ 289
-#define T_GRTEQ 290
-#define T_NOTEQ 291
-#define T_EQEQ 292
-#define T_ASSIGN 293
-#define T_SPLUS 294
-#define T_SMINUS 295
-#define T_SMULT 296
-#define T_SDIV 297
-#define T_INC 298
-#define T_DEC 299
-#define T_SWITCH 300
-#define T_FOR 301
-#define T_MAIN 302
-#define T_RETURN 303
-#define T_DEFAULT 304
-#define T_CASE 305
-#define T_COLON 306
+#define T_POW 267
+#define T_OPEN 268
+#define T_CLOSE 269
+#define T_COMMENT 270
+#define T_SQ_OPEN 271
+#define T_SQ_CLOSE 272
+#define T_INT 273
+#define T_FLOAT 274
+#define T_CHAR 275
+#define T_ID 276
+#define T_NUM 277
+#define T_PLUS 278
+#define T_MINUS 279
+#define T_MULT 280
+#define T_DIV 281
+#define T_AND 282
+#define T_OR 283
+#define T_LESS 284
+#define T_GREAT 285
+#define T_LESEQ 286
+#define T_GRTEQ 287
+#define T_NOTEQ 288
+#define T_EQEQ 289
+#define T_ASSIGN 290
+#define T_SPLUS 291
+#define T_SMINUS 292
+#define T_SMULT 293
+#define T_SDIV 294
+#define T_INC 295
+#define T_DEC 296
+#define T_SWITCH 297
+#define T_FOR 298
+#define T_MAIN 299
+#define T_RETURN 300
+#define T_DEFAULT 301
+#define T_CASE 302
+#define T_COLON 303
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 44 "parser.y"
-char* var_type; char* text; struct AST *node; struct attributes{
+#line 45 "parser.y"
+char* var_type; 
+	char* text; 
+	struct attributes{
 	char* code; 
 	char* optimized_code;
 	char* true;
@@ -166,9 +162,9 @@ char* var_type; char* text; struct AST *node; struct attributes{
 	char* addr;
 	float val;
 	int is_dig;
-}A;
+	}A;
 
-#line 172 "y.tab.h"
+#line 168 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

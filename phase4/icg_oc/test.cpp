@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 int main()
 {
 	//Single line comment
@@ -22,12 +23,9 @@ int main()
 	*/
 	for(int j=0;j<3;j++)
 	{
-		k+=1;
+		for(int i=0;i<5;i++)
 		{
-			for(int i=0;i<5;i++)
-			{
-
-			}
+            
 		}
 	}
     switch(c)

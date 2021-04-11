@@ -11,6 +11,12 @@ int scope_ctr;
 int scope_ind;
 int flag1 =1;
 
+FILE *fp_oc;
+FILE *fp_ic;
+FILE *fp_sym;
+FILE *fp;
+FILE *fp_lex;
+
 extern int yylineno;
 
 int t=0;
@@ -22,11 +28,6 @@ int iter_init[10];
 int iter_top=0;
 int number_of_iterations=0;
 int return_flag=0;
-typedef struct AST{
-	char lexeme[100];
-	int NumChild;
-	struct AST **child;
-}AST_node;
 char typ[10]="nothing";
 extern FILE *yyin;
 char* code_gen(int arg_count,...);
@@ -40,8 +41,10 @@ char break_lab[20];
 char switch_id[10];
 %}
 
-%token T_DOT T_SINGLE T_SC  T_COMMA T_LETTER  T_OPBRACE T_CLBRACE T_CONTINUE T_BREAK T_IF T_ELSE T_WHILE T_POW T_OPEN T_CLOSE T_COMMENT T_SQ_OPEN T_SQ_CLOSE
-%union {char* var_type; char* text; struct AST *node; struct attributes{
+%token T_DOT T_SINGLE T_SC  T_COMMA T_LETTER  T_OPBRACE T_CLBRACE T_CONTINUE T_BREAK T_POW T_OPEN T_CLOSE T_COMMENT T_SQ_OPEN T_SQ_CLOSE
+%union {char* var_type; 
+	char* text; 
+	struct attributes{
 	char* code; 
 	char* optimized_code;
 	char* true;
@@ -51,16 +54,18 @@ char switch_id[10];
 	char* addr;
 	float val;
 	int is_dig;
-}A;}
+	}A;
+}
 %token <var_type> T_INT T_FLOAT T_CHAR 
 %token <text> T_ID T_NUM T_PLUS T_MINUS T_MULT T_DIV T_AND T_OR T_LESS T_GREAT T_LESEQ T_GRTEQ T_NOTEQ T_EQEQ T_ASSIGN T_SPLUS T_SMINUS T_SMULT T_SDIV T_INC T_DEC T_SWITCH T_FOR
 %token <A> T_MAIN T_RETURN T_DEFAULT T_CASE T_COLON
 %type <var_type> Type 
-%type <text> relOp logOp s_op
-%type <A> F T E assign_expr1 assign_expr relexp logexp cond decl s_operation unary_expr iter_stat stat comp_stat start jump_stat select_stat ST C B D Varlist 
+%type <text> relOp s_op
+%type <A> F T E assign_expr1 assign_expr relexp cond decl s_operation unary_expr iter_stat stat comp_stat start jump_stat select_stat ST C B D Varlist 
 %% 
 
-start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                             { //printf("Here\n");
+start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                             
+									{ //printf("Here\n");
 										$$=$5; print_sym_tab(); 
 										if(return_flag)
 										{	$$.code = code_concatenate(2,$$.code,"end: ");
@@ -74,10 +79,10 @@ start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                     
 										char* code4 = (char*)malloc(strlen(code2));
 										remove_rest(code1,code3);
 										remove_rest(code2,code4);
-										printf("\n\nIC\n\n");
+										fprintf(fp_ic,"\n\nIC\n\n");
 										print_IC(code3);
-										printf("\n\nOC\n\n");
-										print_IC(code4);
+										fprintf(fp_oc,"\n\nOC\n\n");
+										print_OC(code4);
 										YYACCEPT;
 										}   
      ;
@@ -85,7 +90,7 @@ start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                     
 comp_stat: T_OPBRACE {scope_ctr++;scope[scope_ind++]=scope_ctr;} stat T_CLBRACE {$$=$3; scope[scope_ind++]=0; $$.optimized_code = $3.optimized_code;}
 		 ;
 		 
-stat:E T_SC stat                {$$.code = code_concatenate(2,$1.code,$3.code); 
+stat:E T_SC stat               {$$.code = code_concatenate(2,$1.code,$3.code); 
                                $$.optimized_code = code_concatenate(2,$1.optimized_code, $3.optimized_code);}
     | assign_expr stat        {$$.code = code_concatenate(2,$1.code,$2.code); 
     							//printf("$2 optimized code : %s\n\n", $2.optimized_code);
@@ -123,13 +128,9 @@ B   : C         {$$=$1;}
     ;
     
 C   : T_CASE T_NUM T_COLON stat      {char* lab1 = new_label();
-								//printf("in switch\n"); 
 								char* lab2 = new_label(); 
-								//printf("in switch\n"); 
 								$$.code = code_concatenate(6,code_gen(4,"if ",$<text>-2," == ",$2," goto ", lab1), " goto ",lab2, code_gen(2,lab1,": "),$4.code, code_gen(2,lab2,": "));
-								//printf("in switch\n"); 
 								$$.optimized_code =code_concatenate(6,code_gen(6,"if ",$<text>-2," == ",$2," goto ", lab1), " goto ",lab2, code_gen(2, lab1,": "),$4.optimized_code, code_gen(2,lab2,": "));
-								//printf("%s\n",$4.optimized_code);
 								}
     ;
 
@@ -171,7 +172,6 @@ jump_stat: T_BREAK T_SC                                        {$$.code = code_g
 		 ;		
 
 cond :relexp        					       {$$=$1;}
-	|logexp   					      {$$=$1;}
 	|E          						{$$=$1;}
 	;
 
@@ -208,12 +208,6 @@ relexp:E relOp E                        {$$.code = code_gen(3,$1.code,$3.code,co
 					}
 	  ;
 
-logexp:E logOp E  			 {$$.code = code_gen(3,$1.code,$3.code,code_gen(3,$1.addr,$2,$3.addr)); $$.optimized_code = $$.code;}
-	  ;
-
-logOp :T_AND   				{$$=$1;}
-     |T_OR   				 {$$=$1;}
-	 ;
 
 relOp :T_LESEQ     			{$$=$1;}
      |T_GRTEQ     			{$$=$1;}
@@ -365,10 +359,11 @@ assign_expr1:T_ID T_ASSIGN E T_COMMA assign_expr1    {$$.addr = gen_addr($1);
 			   							else
 			   								$$.optimized_code = code_concatenate(3,$3.optimized_code,code_gen(3,$$.addr," = ",$3.addr),$5.optimized_code);
 			   							//$$.optimized_code = code_concatenate(2,code_gen(5,typ," ",$$.addr," = ",buf),$5.optimized_code);
-			   							 if(look_up_sym_tab_dec($1,scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR;flag1=1; }
+			   							if(look_up_sym_tab_dec($1,scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR;flag1=1; }
+
 if(scope[scope_ind-1]>0){update_sym_tab(typ,$1,yylineno,scope[scope_ind-1]);}else{int scop=get_scope();update_sym_tab(typ,$1,yylineno,scop);}
 			   							}
-		   |T_ID T_ASSIGN E T_SC           {  $$.addr = gen_addr($1);  
+		   |T_ID T_ASSIGN E T_SC          {  $$.addr = gen_addr($1);  
 		   								
 		   								if(strcmp(typ,"int")==0)
 		   								{
@@ -466,9 +461,6 @@ T:T T_MULT F    {$$.addr = new_temp(); $$.code = code_concatenate(3,$1.code,$3.c
 				if(($1.is_dig) && ($3.is_dig))
 				{
 					$$.is_dig=1;
-					//printf("HERE T_MULT\n");
-					//printf("Constant folding\n");
-					//float temp = atof($1.addr) * atof($3.addr);
 					float temp = $1.val*$3.val;
 					char buf[10];
 					gcvt(temp, 6, buf);
@@ -625,15 +617,15 @@ void update_sym_tab(char* typ, char* nam, int line, int scope)
 
 }
 
-
 void print_sym_tab()
-{
-	int i;
-	printf("\n\nSymbol Table: \n");
-	for(i=0;i<ctr;i++)
-	{
-		printf("<%s,%s,%d,%d, %d> \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope);
-	}
+ { 	
+ 		int i; 	
+		fprintf(fp_sym,"\n\nSymbol Table: \n"); 
+		for(i=0;i<ctr;i++) 	
+		{ 		
+			fprintf(fp_sym,"Token: %s, Type: %s, Size: %d, Line Number: %d, Scope: %d\n \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope); 	
+		} 
+
 }
 
 int look_up_sym_tab(char* nam)
@@ -643,6 +635,7 @@ int look_up_sym_tab(char* nam)
 	{
 		if(strcmp(sym_tab[i].name,nam)==0)
 		{
+
 			int scop=sym_tab[i].scope;
 			int flag=0;
 			int zero_ctr=0;
@@ -688,6 +681,7 @@ int look_up_sym_tab_dec(char* nam, int scop)
 	int i; 
 	for(i=0;i<ctr;i++)
 	{
+		//printf("#### %s ### %s ### %d ### %d \n",sym_tab[i].name,nam,scop,sym_tab[i].scope);
 		if(strcmp(sym_tab[i].name,nam)==0 && sym_tab[i].scope==scop)
 		{
 			return 1;
@@ -871,7 +865,22 @@ void print_IC(char* str)
     // delimiters present in str[].
     while (token != NULL)
     {
-        printf("%s\n", token);
+        fprintf(fp_ic,"%s\n", token);
+        token = strtok(NULL, "\n");
+    }
+ 
+}
+
+void print_OC(char* str)
+{
+	// Returns first token 
+    char *token = strtok(str, "\n");
+   
+    // Keep printing tokens while one of the
+    // delimiters present in str[].
+    while (token != NULL)
+    {
+        fprintf(fp_oc,"%s\n", token);
         token = strtok(NULL, "\n");
     }
  
@@ -965,12 +974,33 @@ char* code_gen(int arg_count,...)
 int main()
 {
 	//printf("Enter a string\n");
-	yyin=fopen("Input.txt","r");
+
+	//yyin=fopen("Input.txt","r");
+	printf("\033[1;32m");
+	printf("\n\nParsing Started\n\n");
+	printf("\n\nTokens Generated\n\n");
+	printf("\n\nIntermediate Code generated\n\n");
+	printf("\n\nOptimized Code generated\n\n");
+	printf("\033[0m");
+	fp_ic        = fopen("Intermediate_code.txt","w");
+	fp_oc		 = fopen("optimized_code.txt","w");
+	fp_sym		 = fopen("symbol_table.txt","w");
+	fp_lex    	 = fopen("tokens.txt","w"); 
+	fp    	 	 = fopen("output.cpp","w"); 
+	fprintf(fp_lex,"\n\t\t TOKENS LIST\n\n") ;
 	if(!yyparse())
 	{
-		printf("\nSuccess\n");
+		printf("\033[1;32m");
+		printf("\n\nParsing Completed\n\n");
+		printf("\033[0m");
 
 	}
 	else
-		printf("Fail\n");
+		{printf("\033[1;31m");
+			printf("\nerror: ");
+			printf("\033[0m");
+		}
+	fclose(fp_ic);
+	fclose(fp_oc);
+	
 }

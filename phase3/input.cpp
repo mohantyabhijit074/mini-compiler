@@ -1,28 +1,24 @@
-#include<stdio.h>
-void main()
+int main()
 {
-        int a = 4 * 5 / 2;
-        int b = a * 7;
+	//Hello
+        int a=10+5/4;
+        int b=12*7-80;
+        int c = 10*2*3+1;
+    {
+        int d = 10*30;
+    }
+    for(int i=0;i<10;++i)
+    {
         
-        while( a>b ){
-                a = a+1;
-        }
-        
-        int x = 20*a;
-        
-        if( b <= x ){
-                a = 10;
-        }
-        c = 10;
-        a = 100;
-        int i = 1;
-		if( a > 0)
-		{
-			i = 2;
-		}
-	
-	int y = a+b;
-	
-	(x < b) ? x = 10 : x=11;
-	
+    }
+    {
+        int k = 10;
+    }
+    switch(c)
+    {
+        case 1:
+            break;
+        case 2:
+            break;
+    }
 }

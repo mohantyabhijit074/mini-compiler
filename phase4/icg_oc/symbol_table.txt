@@ -1,0 +1,25 @@
+
+
+Symbol Table: 
+Token: a, Type: int, Size: 4, Line Number: 6, Scope: 1
+ 
+Token: b, Type: int, Size: 4, Line Number: 7, Scope: 1
+ 
+Token: k, Type: float, Size: 8, Line Number: 8, Scope: 1
+ 
+Token: m, Type: int, Size: 4, Line Number: 9, Scope: 1
+ 
+Token: c, Type: int, Size: 4, Line Number: 10, Scope: 1
+ 
+Token: j, Type: int, Size: 4, Line Number: 11, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 11, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 14, Scope: 2
+ 
+Token: ad, Type: int, Size: 4, Line Number: 16, Scope: 3
+ 
+Token: j, Type: int, Size: 4, Line Number: 24, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 26, Scope: 4
+ 
