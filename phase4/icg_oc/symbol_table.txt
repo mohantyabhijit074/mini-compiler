@@ -1,6 +1,7 @@
 
 
 Symbol Table: 
+<<<<<<< HEAD
 Token: a, Type: int, Size: 4, Line Number: 28, Scope: 1 Value: 10
  
 Token: c, Type: int, Size: 4, Line Number: 29, Scope: 1 Value: 2
@@ -8,4 +9,27 @@ Token: c, Type: int, Size: 4, Line Number: 29, Scope: 1 Value: 2
 Token: a, Type: int, Size: 4, Line Number: 33, Scope: 2 Value: 15
  
 Token: a, Type: int, Size: 4, Line Number: 36, Scope: 2 Value: 5
+=======
+Token: a, Type: int, Size: 4, Line Number: 6, Scope: 1
+ 
+Token: b, Type: int, Size: 4, Line Number: 7, Scope: 1
+ 
+Token: k, Type: float, Size: 8, Line Number: 8, Scope: 1
+ 
+Token: m, Type: int, Size: 4, Line Number: 9, Scope: 1
+ 
+Token: c, Type: int, Size: 4, Line Number: 10, Scope: 1
+ 
+Token: j, Type: int, Size: 4, Line Number: 11, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 11, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 14, Scope: 2
+ 
+Token: ad, Type: int, Size: 4, Line Number: 16, Scope: 3
+ 
+Token: j, Type: int, Size: 4, Line Number: 24, Scope: 1
+ 
+Token: i, Type: int, Size: 4, Line Number: 26, Scope: 4
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
  

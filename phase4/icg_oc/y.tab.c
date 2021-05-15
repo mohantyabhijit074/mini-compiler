@@ -87,6 +87,12 @@ FILE *fp_lex;
 FILE *fp_ic_quad;
 FILE *fp_oc_quad;
 
+FILE *fp_oc;
+FILE *fp_ic;
+FILE *fp_sym;
+FILE *fp;
+FILE *fp_lex;
+
 extern int yylineno;
 
 int t=0;
@@ -141,7 +147,11 @@ int qlen = 0;
 quad Q[100];
 
 
+<<<<<<< HEAD
 #line 145 "y.tab.c"
+=======
+#line 113 "y.tab.c"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -289,7 +299,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
+<<<<<<< HEAD
 #line 77 "parser.y"
+=======
+#line 45 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 char* var_type; 
 	char* text; 
 	struct attributes{
@@ -305,7 +319,11 @@ char* var_type;
 	int is_dig;
 	}A;
 
+<<<<<<< HEAD
 #line 309 "y.tab.c"
+=======
+#line 276 "y.tab.c"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -624,7 +642,11 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
+<<<<<<< HEAD
 #define YYLAST   157
+=======
+#define YYLAST   151
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  49
@@ -633,7 +655,11 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  70
 /* YYNSTATES -- Number of states.  */
+<<<<<<< HEAD
 #define YYNSTATES  135
+=======
+#define YYNSTATES  133
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   303
@@ -685,6 +711,7 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
+<<<<<<< HEAD
        0,   100,   100,   119,   119,   122,   124,   130,   131,   131,
      131,   134,   134,   134,   137,   138,   139,   144,   144,   155,
      156,   157,   160,   173,   180,   183,   215,   216,   219,   220,
@@ -693,6 +720,16 @@ static const yytype_int16 yyrline[] =
      601,   620,   638,   641,   642,   643,   644,   645,   648,   655,
      662,   670,   671,   672,   673,   676,   684,   690,   696,   702,
      708
+=======
+       0,    67,    67,    90,    90,    93,    95,   101,   102,   102,
+     102,   105,   105,   105,   108,   109,   110,   115,   115,   125,
+     126,   127,   130,   138,   145,   148,   170,   171,   174,   175,
+     179,   212,   213,   214,   215,   216,   217,   220,   221,   226,
+     227,   230,   235,   245,   281,   329,   366,   411,   436,   457,
+     460,   480,   501,   504,   505,   506,   507,   508,   511,   518,
+     524,   532,   533,   534,   535,   538,   544,   550,   556,   562,
+     568
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 #endif
 
@@ -711,8 +748,13 @@ static const char *const yytname[] =
   "T_DEFAULT", "T_CASE", "T_COLON", "$accept", "start", "comp_stat", "$@1",
   "stat", "$@2", "$@3", "$@4", "$@5", "ST", "$@6", "B", "C", "D",
   "select_stat", "iter_stat", "jump_stat", "cond", "relexp", "relOp",
+<<<<<<< HEAD
   "decl", "Type", "assign_expr", "assign_expr1", "assign_expr_for", "E",
   "T", "F", "s_operation", "s_op", "unary_expr", YY_NULLPTR
+=======
+  "decl", "Type", "Varlist", "assign_expr", "assign_expr1", "E", "T", "F",
+  "s_operation", "s_op", "unary_expr", YY_NULLPTR
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 #endif
 
@@ -729,7 +771,11 @@ static const yytype_int16 yytoknum[] =
 };
 # endif
 
+<<<<<<< HEAD
 #define YYPACT_NINF (-33)
+=======
+#define YYPACT_NINF (-62)
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -743,6 +789,7 @@ static const yytype_int16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
+<<<<<<< HEAD
      -11,   -32,    15,    27,   -33,    33,    11,   -33,   -33,     5,
       44,    17,   -33,   -33,   -33,    89,   -33,   -12,    32,    34,
       17,    53,    50,    40,    49,    53,    53,    80,    53,    60,
@@ -757,6 +804,22 @@ static const yytype_int16 yypact[] =
      -33,   -33,   -33,   -33,    17,   125,   139,    42,   -33,   121,
       68,   135,    96,   102,   -33,   103,   -33,   -33,   -33,    11,
       53,     5,   -33,   -33,   -33
+=======
+     -11,   -35,    24,    20,   -62,    32,    42,   -62,   -62,     4,
+      49,    52,   -62,   -62,    78,   -62,   -18,    35,    51,    52,
+      40,    54,    33,    34,    40,    40,    63,    40,    11,    41,
+     -62,   -62,   -62,   -62,    86,    18,    52,   -62,   -62,   -62,
+     -62,   -62,   -62,    90,   -62,   -62,   -62,   -62,    47,   -62,
+     -62,    89,   -62,   -62,   107,   -62,   -62,   -62,    56,    81,
+     -62,   -62,    40,    52,    52,    52,    52,   -62,    13,    52,
+     -62,   -62,   -62,   109,    40,    82,    40,    52,   -62,   112,
+     -62,    41,    41,   -62,   -62,   -62,   115,    55,   123,   -62,
+     117,   -62,    15,   -62,   104,   -62,   -62,   132,    56,    52,
+     -62,   117,   -62,   136,   -62,    65,   -62,    95,   -10,   -62,
+     -62,   -62,   -62,   -62,   -62,    52,   121,   135,    58,    67,
+     131,   105,    98,   -62,    99,   -62,   -62,    42,    40,     4,
+     -62,   -62,   -62
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -765,6 +828,7 @@ static const yytype_int16 yypact[] =
 static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     0,     1,     0,     0,     3,     2,     8,
+<<<<<<< HEAD
        0,     0,    38,    39,    40,    53,    54,     0,     0,     0,
        0,    16,     0,     0,     0,    16,    16,     0,    16,     0,
       49,    52,    57,    56,    26,    53,     0,     0,    61,    62,
@@ -778,24 +842,53 @@ static const yytype_int8 yydefact[] =
       31,    32,    33,    34,     0,     0,     0,    19,    46,     0,
        0,     0,    30,     0,    18,     0,    21,    20,    45,     0,
       16,     8,    25,    22,    23
+=======
+       0,     0,    39,    40,    53,    54,     0,     0,     0,     0,
+      16,     0,     0,     0,    16,    16,     0,    16,     0,    49,
+      52,    57,    56,    26,    53,     0,     0,    61,    62,    63,
+      64,    66,    68,     0,    69,    70,    65,    67,     0,     7,
+       4,     0,    24,     9,     0,    12,    14,    15,    42,     0,
+      38,     6,    16,     0,     0,     0,     0,    55,     0,     0,
+      58,    59,    27,     0,    16,     0,    16,     0,    37,     0,
+       5,    47,    48,    50,    51,    44,     0,     0,     0,    10,
+       0,    13,     0,    41,     0,    43,    60,     0,     0,     0,
+      46,     0,    17,     0,    28,    29,    45,     0,     0,    35,
+      36,    31,    32,    33,    34,     0,     0,     0,    19,     0,
+       0,    30,     0,    18,     0,    21,    20,     0,    16,     8,
+      25,    22,    23
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
+<<<<<<< HEAD
      -33,   -33,    -6,   -33,   -20,   -33,   -33,   -33,   -33,   -33,
      -33,    36,   -33,   -33,   -33,   -33,   -33,   -33,   -33,   -33,
      -33,    77,    70,    59,    37,    -9,    58,    72,   -33,   -33,
       48
+=======
+     -62,   -62,    -6,   -62,   -19,   -62,   -62,   -62,   -62,   -62,
+     -62,    30,   -62,   -62,   -62,   -62,   -62,   -62,   -62,   -62,
+     -62,    74,   -62,    64,   -61,    -9,    68,    69,   -62,   -62,
+      43
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
+<<<<<<< HEAD
       -1,     2,    21,     9,    22,    23,    74,    24,    76,    53,
      105,   116,   117,   127,    54,    56,    25,   101,   102,   114,
       26,    27,    28,    60,    96,    29,    30,    31,    32,    44,
       33
+=======
+      -1,     2,    20,     9,    21,    22,    74,    23,    76,    52,
+     107,   117,   118,   126,    53,    55,    24,   103,   104,   115,
+      25,    26,    59,    27,    60,    28,    29,    30,    31,    43,
+      32
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -803,6 +896,7 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
+<<<<<<< HEAD
        8,    50,    36,    83,    84,    57,    58,     1,    61,    45,
       46,    49,     3,     7,   -16,     4,    10,   120,    11,     7,
       17,    63,    64,    12,    13,    14,    15,    16,    68,    17,
@@ -819,10 +913,29 @@ static const yytype_int16 yytable[] =
       43,    38,    39,    40,    41,    42,    43,    81,    82,    86,
       91,    94,    95,    37,    99,   100,   115,   123,   124,   129,
      130,   131,    88,   126,    92,   121,   128,   104
+=======
+       8,    49,    35,    44,    45,    56,    57,     1,    61,     3,
+      48,   119,     7,   -16,    16,    10,    62,    11,    85,    86,
+     100,   101,    12,    13,     4,    14,    15,    68,    16,    99,
+      17,    18,    67,     5,    63,    64,    63,    64,    63,    64,
+     106,    63,    64,    80,    17,    18,     6,   -11,     7,    19,
+       7,    10,    72,    11,    33,    89,    46,    91,    12,    13,
+      87,    14,    15,    50,    16,    11,    65,    66,    92,    96,
+      63,    64,    47,    34,    15,    51,    16,    54,    63,    64,
+      17,    18,    -8,   -11,    58,    19,    78,    79,    63,    64,
+     105,    77,    17,    18,   109,   110,   111,   112,   113,   114,
+      12,    13,    73,    69,   124,   116,   121,    41,    42,   131,
+     132,    70,    71,    36,    37,    38,    39,    40,    41,    42,
+      75,   130,    37,    38,    39,    40,    41,    42,    63,    64,
+      88,    81,    82,    93,    83,    84,    94,    97,    98,    36,
+     102,   108,   116,   122,   123,   127,   128,   129,   125,    90,
+      95,   120
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
 static const yytype_uint8 yycheck[] =
 {
+<<<<<<< HEAD
        6,    21,    11,     5,     6,    25,    26,    18,    28,    21,
       22,    20,    44,     8,     9,     0,    11,    21,    13,     8,
       24,    23,    24,    18,    19,    20,    21,    22,    37,    24,
@@ -839,6 +952,24 @@ static const yytype_uint8 yycheck[] =
       41,    36,    37,    38,    39,    40,    41,    65,    66,    21,
       21,    14,    21,    35,     8,    35,    47,    22,     9,    14,
       48,    48,    75,   117,    84,   107,   119,    98
+=======
+       6,    20,    11,    21,    22,    24,    25,    18,    27,    44,
+      19,    21,     8,     9,    24,    11,     5,    13,     5,     6,
+       5,     6,    18,    19,     0,    21,    22,    36,    24,    90,
+      40,    41,    14,    13,    23,    24,    23,    24,    23,    24,
+     101,    23,    24,    62,    40,    41,    14,    43,     8,    45,
+       8,    11,     5,    13,     5,    74,    21,    76,    18,    19,
+      69,    21,    22,     9,    24,    13,    25,    26,    77,    14,
+      23,    24,    21,    21,    22,    42,    24,    43,    23,    24,
+      40,    41,    42,    43,    21,    45,     5,     6,    23,    24,
+      99,    35,    40,    41,    29,    30,    31,    32,    33,    34,
+      18,    19,    13,    13,    46,    47,   115,    40,    41,   128,
+     129,    21,    22,    35,    36,    37,    38,    39,    40,    41,
+      13,   127,    36,    37,    38,    39,    40,    41,    23,    24,
+      21,    63,    64,    21,    65,    66,    21,    14,    21,    35,
+       8,     5,    47,    22,     9,    14,    48,    48,   118,    75,
+      86,   108
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -846,6 +977,7 @@ static const yytype_uint8 yycheck[] =
 static const yytype_int8 yystos[] =
 {
        0,    18,    50,    44,     0,    13,    14,     8,    51,    52,
+<<<<<<< HEAD
       11,    13,    18,    19,    20,    21,    22,    24,    40,    41,
       45,    51,    53,    54,    56,    65,    69,    70,    71,    74,
       75,    76,    77,    79,     5,    21,    74,    35,    36,    37,
@@ -859,6 +991,21 @@ static const yytype_int8 yystos[] =
       31,    32,    33,    34,    68,    47,    60,    61,     5,     6,
       21,    79,    74,    22,     9,    46,    60,    62,    73,    14,
       48,    48,    51,    53,    53
+=======
+      11,    13,    18,    19,    21,    22,    24,    40,    41,    45,
+      51,    53,    54,    56,    65,    69,    70,    72,    74,    75,
+      76,    77,    79,     5,    21,    74,    35,    36,    37,    38,
+      39,    40,    41,    78,    21,    22,    21,    21,    74,    53,
+       9,    42,    58,    63,    43,    64,    53,    53,    21,    71,
+      73,    53,     5,    23,    24,    25,    26,    14,    74,    13,
+      21,    22,     5,    13,    55,    13,    57,    35,     5,     6,
+      53,    75,    75,    76,    76,     5,     6,    74,    21,    53,
+      70,    53,    74,    21,    21,    72,    14,    14,    21,    73,
+       5,     6,     8,    66,    67,    74,    73,    59,     5,    29,
+      30,    31,    32,    33,    34,    68,    47,    60,    61,    21,
+      79,    74,    22,     9,    46,    60,    62,    14,    48,    48,
+      51,    53,    53
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -867,7 +1014,11 @@ static const yytype_int8 yyr1[] =
        0,    49,    50,    52,    51,    53,    53,    53,    54,    55,
       53,    56,    57,    53,    53,    53,    53,    59,    58,    60,
       60,    60,    61,    62,    63,    64,    65,    65,    66,    66,
+<<<<<<< HEAD
       67,    68,    68,    68,    68,    68,    68,    69,    70,    70,
+=======
+      67,    68,    68,    68,    68,    68,    68,    69,    69,    70,
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
       70,    71,    71,    72,    72,    73,    73,    74,    74,    74,
       75,    75,    75,    76,    76,    76,    76,    76,    77,    77,
       77,    78,    78,    78,    78,    79,    79,    79,    79,    79,
@@ -880,8 +1031,13 @@ static const yytype_int8 yyr2[] =
        0,     2,     5,     0,     4,     3,     2,     2,     0,     0,
        4,     0,     0,     4,     2,     2,     0,     0,     8,     1,
        2,     2,     4,     3,     1,     9,     2,     3,     1,     1,
+<<<<<<< HEAD
        3,     1,     1,     1,     1,     1,     1,     2,     1,     1,
        1,     5,     4,     5,     4,     5,     4,     3,     3,     1,
+=======
+       3,     1,     1,     1,     1,     1,     1,     3,     2,     1,
+       1,     3,     1,     5,     4,     5,     4,     3,     3,     1,
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
        3,     3,     1,     1,     1,     3,     1,     1,     3,     3,
        5,     1,     1,     1,     1,     2,     2,     2,     2,     2,
        2
@@ -1580,8 +1736,13 @@ yyreduce:
   switch (yyn)
     {
   case 2:
+<<<<<<< HEAD
 #line 101 "parser.y"
                                                                         { 
+=======
+#line 68 "parser.y"
+                                                                        { //printf("Here\n");
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 										(yyval.A)=(yyvsp[0].A); print_sym_tab(); 
 										char* code1 = (char*)malloc(strlen((yyval.A).code)); 
 										char* code2 = (char*)malloc(strlen((yyval.A).optimized_code));
@@ -1597,6 +1758,7 @@ yyreduce:
 										print_OC(code4);
 										YYACCEPT;
 										}
+<<<<<<< HEAD
 #line 1601 "y.tab.c"
     break;
 
@@ -1621,12 +1783,39 @@ yyreduce:
 
   case 6:
 #line 124 "parser.y"
+=======
+#line 1572 "y.tab.c"
+    break;
+
+  case 3:
+#line 90 "parser.y"
+                     {scope_ctr++;scope[scope_ind++]=scope_ctr;}
+#line 1578 "y.tab.c"
+    break;
+
+  case 4:
+#line 90 "parser.y"
+                                                                                {(yyval.A)=(yyvsp[-1].A); scope[scope_ind++]=0; (yyval.A).optimized_code = (yyvsp[-1].A).optimized_code;}
+#line 1584 "y.tab.c"
+    break;
+
+  case 5:
+#line 93 "parser.y"
+                               {(yyval.A).code = code_concatenate(2,(yyvsp[-2].A).code,(yyvsp[0].A).code); 
+                               (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-2].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1591 "y.tab.c"
+    break;
+
+  case 6:
+#line 95 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                               {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code,(yyvsp[0].A).code); 
     						
     							(yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code); 
     							(yyval.A).is_dig=(yyvsp[-1].A).is_dig;
     						
     						  }
+<<<<<<< HEAD
 #line 1631 "y.tab.c"
     break;
 
@@ -1650,9 +1839,35 @@ yyreduce:
 
   case 10:
 #line 131 "parser.y"
+=======
+#line 1602 "y.tab.c"
+    break;
+
+  case 7:
+#line 101 "parser.y"
+                             {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code,(yyvsp[0].A).code); (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1608 "y.tab.c"
+    break;
+
+  case 8:
+#line 102 "parser.y"
+     {char * lab = new_label(); push(lab);}
+#line 1614 "y.tab.c"
+    break;
+
+  case 9:
+#line 102 "parser.y"
+                                                        {pop();}
+#line 1620 "y.tab.c"
+    break;
+
+  case 10:
+#line 102 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                                               {(yyval.A).code = code_concatenate(2,(yyvsp[-2].A).code,(yyvsp[0].A).code); 
     																		(yyval.A).optimized_code = code_concatenate(2,(yyvsp[-2].A).optimized_code, (yyvsp[0].A).optimized_code);
     																			}
+<<<<<<< HEAD
 #line 1657 "y.tab.c"
     break;
 
@@ -1703,12 +1918,65 @@ yyreduce:
   case 18:
 #line 145 "parser.y"
                                                                                         {	
+=======
+#line 1628 "y.tab.c"
+    break;
+
+  case 11:
+#line 105 "parser.y"
+      {char * lab = new_label(); push(lab);}
+#line 1634 "y.tab.c"
+    break;
+
+  case 12:
+#line 105 "parser.y"
+                                                       {pop();}
+#line 1640 "y.tab.c"
+    break;
+
+  case 13:
+#line 105 "parser.y"
+                                                                               {(yyval.A).code = code_concatenate(2,(yyvsp[-2].A).code,(yyvsp[0].A).code); 
+    																			(yyval.A).optimized_code = code_concatenate(2,(yyvsp[-2].A).optimized_code, (yyvsp[0].A).optimized_code);
+    																			}
+#line 1648 "y.tab.c"
+    break;
+
+  case 14:
+#line 108 "parser.y"
+                               {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code,(yyvsp[0].A).code); (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1654 "y.tab.c"
+    break;
+
+  case 15:
+#line 109 "parser.y"
+                 {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code,(yyvsp[0].A).code); (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1660 "y.tab.c"
+    break;
+
+  case 16:
+#line 110 "parser.y"
+                                        {(yyval.A).code = " "; (yyval.A).optimized_code = (yyval.A).code;}
+#line 1666 "y.tab.c"
+    break;
+
+  case 17:
+#line 115 "parser.y"
+                                             {scope_ctr++;scope[scope_ind++]=scope_ctr;}
+#line 1672 "y.tab.c"
+    break;
+
+  case 18:
+#line 116 "parser.y"
+                                                                                        {
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 												scope[scope_ind++]=0;
 												if(!look_up_sym_tab((yyvsp[-5].text))){printf("Undeclared variable %s\n", (yyvsp[-5].text)); YYERROR;}
 												//printf("%s\n",stack[top]);
 												(yyval.A).code = code_concatenate(2, (yyvsp[-1].A).code, code_gen(2,stack[top],"Label"));
 												(yyval.A).optimized_code = code_concatenate(2, (yyvsp[-1].A).optimized_code, code_gen_oc(2,stack[top],"Label"));
 											}
+<<<<<<< HEAD
 #line 1713 "y.tab.c"
     break;
 
@@ -1765,6 +2033,57 @@ yyreduce:
 								  (yyvsp[-4].A).true = new_label(); 
 						          (yyvsp[0].A).next = stack[top];
 								  (yyvsp[-4].A).false = (yyvsp[0].A).next;   
+=======
+#line 1683 "y.tab.c"
+    break;
+
+  case 19:
+#line 125 "parser.y"
+                {(yyval.A)=(yyvsp[0].A);}
+#line 1689 "y.tab.c"
+    break;
+
+  case 20:
+#line 126 "parser.y"
+                {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code, (yyvsp[0].A).code); (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1695 "y.tab.c"
+    break;
+
+  case 21:
+#line 127 "parser.y"
+                {(yyval.A).code = code_concatenate(2,(yyvsp[-1].A).code, (yyvsp[0].A).code); (yyval.A).optimized_code = code_concatenate(2,(yyvsp[-1].A).optimized_code, (yyvsp[0].A).optimized_code);}
+#line 1701 "y.tab.c"
+    break;
+
+  case 22:
+#line 130 "parser.y"
+                                     {char* lab1 = new_label();
+								char* lab2 = new_label(); 
+								(yyval.A).code = code_concatenate(6,code_gen(4,"if ",(yyvsp[(-2) - (4)].text)," == ",(yyvsp[-2].text)," goto ", lab1), " goto ",lab2, code_gen(2,lab1,": "),(yyvsp[0].A).code, code_gen(2,lab2,": "));
+								(yyval.A).optimized_code =code_concatenate(6,code_gen(6,"if ",(yyvsp[(-2) - (4)].text)," == ",(yyvsp[-2].text)," goto ", lab1), " goto ",lab2, code_gen(2, lab1,": "),(yyvsp[0].A).optimized_code, code_gen(2,lab2,": "));
+								}
+#line 1711 "y.tab.c"
+    break;
+
+  case 23:
+#line 138 "parser.y"
+                                   {char* lab = new_label(); (yyval.A).code = code_concatenate(1,(yyvsp[0].A).code); (yyval.A).optimized_code = (yyvsp[0].A).optimized_code;}
+#line 1717 "y.tab.c"
+    break;
+
+  case 24:
+#line 145 "parser.y"
+                   {(yyval.A)=(yyvsp[0].A);}
+#line 1723 "y.tab.c"
+    break;
+
+  case 25:
+#line 148 "parser.y"
+                                                                                   {char* begin = new_label(); 						 						
+								 (yyvsp[-4].A).true = new_label(); 
+						                 (yyvsp[0].A).next = stack[top];
+								 (yyvsp[-4].A).false = (yyvsp[0].A).next;   
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 								 strcpy(break_lab,(yyvsp[0].A).next);
 								 
 							         (yyval.A).code = code_concatenate(8,code_gen(6,"if ", (yyvsp[-4].A).addr, (yyvsp[-4].A).true,"","",""),code_gen(6,"goto ", (yyvsp[-4].A).true,"","","",""), 
@@ -1782,6 +2101,7 @@ yyreduce:
 								else
 							        {
 								    (yyval.A).optimized_code = (yyval.A).code;
+<<<<<<< HEAD
 							        }
 									
 									code_gen(2,"goto",end_for);
@@ -1819,6 +2139,39 @@ yyreduce:
 #line 224 "parser.y"
                       {(yyval.A).addr = new_temp();
 					(yyval.A).code = code_gen(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(5,(yyval.A).addr," = ",(yyvsp[-2].A).addr,(yyvsp[-1].text),(yyvsp[0].A).addr)); 
+=======
+							        }}
+#line 1748 "y.tab.c"
+    break;
+
+  case 26:
+#line 170 "parser.y"
+                                                               {(yyval.A).code = code_gen(2,"goto ",stack[top]); (yyval.A).optimized_code = (yyval.A).code;}
+#line 1754 "y.tab.c"
+    break;
+
+  case 27:
+#line 171 "parser.y"
+                                                               {(yyval.A).code = code_gen(3,"return ",(yyvsp[-1].A).addr,"\ngoto end\n");  (yyval.A).optimized_code = (yyval.A).code; return_flag=1;}
+#line 1760 "y.tab.c"
+    break;
+
+  case 28:
+#line 174 "parser.y"
+                                                               {(yyval.A)=(yyvsp[0].A);}
+#line 1766 "y.tab.c"
+    break;
+
+  case 29:
+#line 175 "parser.y"
+                                                                {(yyval.A)=(yyvsp[0].A);}
+#line 1772 "y.tab.c"
+    break;
+
+  case 30:
+#line 179 "parser.y"
+                                        {(yyval.A).code = code_gen(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(3,(yyvsp[-2].A).addr,(yyvsp[-1].text),(yyvsp[0].A).addr)); 
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 					if(strcmp((yyvsp[-1].text),"<")==0)
 					{
 						num_iter[iter_top++]=atoi((yyvsp[0].A).addr);
@@ -1854,6 +2207,7 @@ yyreduce:
 					}
 					
 					}
+<<<<<<< HEAD
 #line 1858 "y.tab.c"
     break;
 
@@ -1921,6 +2275,96 @@ yyreduce:
 #line 283 "parser.y"
                                                       {
 										(yyval.A).addr = gen_addr((yyvsp[-4].text));  
+=======
+#line 1807 "y.tab.c"
+    break;
+
+  case 31:
+#line 212 "parser.y"
+                                        {(yyval.text)=(yyvsp[0].text);}
+#line 1813 "y.tab.c"
+    break;
+
+  case 32:
+#line 213 "parser.y"
+                                        {(yyval.text)=(yyvsp[0].text);}
+#line 1819 "y.tab.c"
+    break;
+
+  case 33:
+#line 214 "parser.y"
+                                         {(yyval.text)=(yyvsp[0].text);}
+#line 1825 "y.tab.c"
+    break;
+
+  case 34:
+#line 215 "parser.y"
+                                         {(yyval.text)=(yyvsp[0].text);}
+#line 1831 "y.tab.c"
+    break;
+
+  case 35:
+#line 216 "parser.y"
+                                         {(yyval.text)=(yyvsp[0].text);}
+#line 1837 "y.tab.c"
+    break;
+
+  case 36:
+#line 217 "parser.y"
+                                         {(yyval.text)=(yyvsp[0].text);}
+#line 1843 "y.tab.c"
+    break;
+
+  case 37:
+#line 220 "parser.y"
+                                         {(yyval.A).code = code_gen(3,(yyvsp[-2].var_type)," ",(yyvsp[-1].A).code); (yyval.A).optimized_code = (yyval.A).code;}
+#line 1849 "y.tab.c"
+    break;
+
+  case 38:
+#line 221 "parser.y"
+                                         {(yyval.A).code = code_gen(1,(yyvsp[0].A).code); (yyval.A).optimized_code = (yyvsp[0].A).optimized_code; }
+#line 1855 "y.tab.c"
+    break;
+
+  case 39:
+#line 226 "parser.y"
+                                        { (yyval.var_type)=(yyvsp[0].var_type); strcpy(typ,(yyvsp[0].var_type));}
+#line 1861 "y.tab.c"
+    break;
+
+  case 40:
+#line 227 "parser.y"
+                                         {(yyval.var_type)=(yyvsp[0].var_type);strcpy(typ,(yyvsp[0].var_type));}
+#line 1867 "y.tab.c"
+    break;
+
+  case 41:
+#line 230 "parser.y"
+                                                {if(look_up_sym_tab_dec((yyvsp[0].text),scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR; } 
+								if(scope[scope_ind-1]>0){update_sym_tab((yyvsp[-3].var_type),(yyvsp[0].text),yylineno,scope[scope_ind-1]);}else{int scop=get_scope();update_sym_tab((yyvsp[-3].var_type),(yyvsp[0].text),yylineno,scop);} 
+
+								(yyval.A).code = code_gen(3,(yyvsp[-2].A).code,", ",(yyvsp[0].text)); (yyval.A).optimized_code = code_gen(3,(yyvsp[-2].A).optimized_code,", ",(yyvsp[0].text));
+								}
+#line 1877 "y.tab.c"
+    break;
+
+  case 42:
+#line 235 "parser.y"
+                                                  {(yyval.A).addr=gen_addr((yyvsp[0].text)); 
+	   					if(look_up_sym_tab_dec((yyvsp[0].text),scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR; }
+	   					if(scope[scope_ind-1]>0){update_sym_tab((yyvsp[-1].var_type),(yyvsp[0].text),yylineno,scope[scope_ind-1]);}else{int scop=get_scope();
+                                                update_sym_tab ((yyvsp[-1].var_type),(yyvsp[0].text),yylineno,scop);} 
+	   					(yyval.A).code = (yyvsp[0].text); (yyval.A).optimized_code = (yyvsp[0].text);
+	   					//printf("%s T_ID\n",$1);
+	   					}
+#line 1889 "y.tab.c"
+    break;
+
+  case 43:
+#line 245 "parser.y"
+                                                                                     {(yyval.A).addr = gen_addr((yyvsp[-4].text));  
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 			   							(yyval.A).code = code_concatenate(3,(yyvsp[-2].A).code,code_gen(3,(yyval.A).addr," = ",(yyvsp[-2].A).addr),(yyvsp[0].A).code);
 			   							char buf[10];
 			   							int scop=get_scope();
@@ -1960,6 +2404,7 @@ yyreduce:
 										}
 			   							if(!look_up_sym_tab((yyvsp[-4].text))){printf("Undeclared variable %s\n", (yyvsp[-4].text)); YYERROR;}flag1=1;
 			   							}
+<<<<<<< HEAD
 #line 1964 "y.tab.c"
     break;
 
@@ -1967,6 +2412,14 @@ yyreduce:
 #line 324 "parser.y"
                                                  {
 			   							
+=======
+#line 1930 "y.tab.c"
+    break;
+
+  case 44:
+#line 281 "parser.y"
+                                                        {
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 		  								(yyval.A).addr = gen_addr((yyvsp[-3].text)); 
 		  								int scop=get_scope(); 
 		  								int ret=is_int((yyvsp[-3].text),scop);
@@ -2023,11 +2476,19 @@ yyreduce:
 										if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-3].text),yylineno,scope[scope_ind-1],symbol_table_value);}else{int scop=get_scope();update_sym_tab(typ,(yyvsp[-3].text),yylineno,scop,symbol_table_value);}}
 			   							flag1=1;												
 			   							}
+<<<<<<< HEAD
 #line 2027 "y.tab.c"
     break;
 
   case 43:
 #line 384 "parser.y"
+=======
+#line 1981 "y.tab.c"
+    break;
+
+  case 45:
+#line 329 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                      {(yyval.A).addr = gen_addr((yyvsp[-4].text));  
 									
 										if(strcmp(typ,"int")==0)
@@ -2059,11 +2520,17 @@ yyreduce:
 										if((yyvsp[-2].A).is_dig)
 			   								(yyval.A).optimized_code = code_concatenate(2,code_gen_oc(3,(yyval.A).addr," = ",buf),(yyvsp[0].A).optimized_code);
 			   							else
+<<<<<<< HEAD
 			   								(yyval.A).optimized_code = code_concatenate(3,(yyvsp[-2].A).optimized_code,code_gen_oc(3,(yyval.A).addr," = ",(yyvsp[-2].A).addr),(yyvsp[0].A).optimized_code);
+=======
+			   								(yyval.A).optimized_code = code_concatenate(3,(yyvsp[-2].A).optimized_code,code_gen(3,(yyval.A).addr," = ",(yyvsp[-2].A).addr),(yyvsp[0].A).optimized_code);
+			   							//$$.optimized_code = code_concatenate(2,code_gen(5,typ," ",$$.addr," = ",buf),$5.optimized_code);
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 			   							if(look_up_sym_tab_dec((yyvsp[-4].text),scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR;flag1=1; }
 
 if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scope_ind-1]);}else{int scop=get_scope();update_sym_tab(typ,(yyvsp[-4].text),yylineno,scop);}
 			   							}
+<<<<<<< HEAD
 #line 2068 "y.tab.c"
     break;
 
@@ -2071,6 +2538,15 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 #line 420 "parser.y"
                                                   {  (yyval.A).addr = gen_addr((yyvsp[-3].text));  
 		   								char symbol_buffer[10];
+=======
+#line 2023 "y.tab.c"
+    break;
+
+  case 46:
+#line 366 "parser.y"
+                                                  {  (yyval.A).addr = gen_addr((yyvsp[-3].text));  
+		   								
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 		   								if(strcmp(typ,"int")==0)
 		   								{
 		   									if(is_digit((yyvsp[-1].A).addr))
@@ -2215,11 +2691,19 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 			   							 if(look_up_sym_tab_dec((yyvsp[-3].text),scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR; } if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-3].text),yylineno,scope[scope_ind-1],symbol_table_value);}else{int scop=get_scope();update_sym_tab(typ,(yyvsp[-3].text),yylineno,scop,symbol_table_value);} 
 			   							iter_init[iter_top]=atoi((yyvsp[-1].A).addr);
 			   						 }
+<<<<<<< HEAD
 #line 2219 "y.tab.c"
     break;
 
   case 47:
 #line 562 "parser.y"
+=======
+#line 2071 "y.tab.c"
+    break;
+
+  case 47:
+#line 411 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                 {(yyval.A).addr = new_temp(); (yyval.A).code = code_concatenate(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(5,(yyval.A).addr," = ",(yyvsp[-2].A).addr," + ",(yyvsp[0].A).addr)); 
 				if(((yyvsp[-2].A).is_dig) && ((yyvsp[0].A).is_dig))
 				{
@@ -2238,11 +2722,19 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 					flag1=0;
 				}
 				}
+<<<<<<< HEAD
 #line 2242 "y.tab.c"
     break;
 
   case 48:
 #line 580 "parser.y"
+=======
+#line 2101 "y.tab.c"
+    break;
+
+  case 48:
+#line 436 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                  {(yyval.A).addr = new_temp(); (yyval.A).code = code_concatenate(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(5,(yyval.A).addr," = ",(yyvsp[-2].A).addr," - ",(yyvsp[0].A).addr));
  				if(((yyvsp[-2].A).is_dig) && ((yyvsp[0].A).is_dig))
 				{
@@ -2261,6 +2753,7 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 					flag1=0;
 				}
  				}
+<<<<<<< HEAD
 #line 2265 "y.tab.c"
     break;
 
@@ -2272,6 +2765,19 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 
   case 50:
 #line 601 "parser.y"
+=======
+#line 2127 "y.tab.c"
+    break;
+
+  case 49:
+#line 457 "parser.y"
+                               {(yyval.A)=(yyvsp[0].A);}
+#line 2133 "y.tab.c"
+    break;
+
+  case 50:
+#line 460 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                 {(yyval.A).addr = new_temp(); (yyval.A).code = code_concatenate(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(5,(yyval.A).addr," = ",(yyvsp[-2].A).addr," * ",(yyvsp[0].A).addr)); 
 				if(((yyvsp[-2].A).is_dig) && ((yyvsp[0].A).is_dig))
 				{
@@ -2291,11 +2797,19 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 					flag1=0;
 				}
 				}
+<<<<<<< HEAD
 #line 2295 "y.tab.c"
     break;
 
   case 51:
 #line 620 "parser.y"
+=======
+#line 2158 "y.tab.c"
+    break;
+
+  case 51:
+#line 480 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                   {(yyval.A).addr = new_temp(); (yyval.A).code = code_concatenate(3,(yyvsp[-2].A).code,(yyvsp[0].A).code,code_gen(5,(yyval.A).addr," = ",(yyvsp[-2].A).addr," / ",(yyvsp[0].A).addr)); 
  				if(((yyvsp[-2].A).is_dig) && ((yyvsp[0].A).is_dig))
 				{
@@ -2314,6 +2828,7 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 					flag1=0;
 				}
  				}
+<<<<<<< HEAD
 #line 2318 "y.tab.c"
     break;
 
@@ -2355,6 +2870,49 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 
   case 58:
 #line 648 "parser.y"
+=======
+#line 2184 "y.tab.c"
+    break;
+
+  case 52:
+#line 501 "parser.y"
+                               {(yyval.A).addr = (yyvsp[0].A).addr; (yyval.A).code = (yyvsp[0].A).code; (yyval.A).optimized_code = (yyvsp[0].A).optimized_code; (yyval.A).val = (yyvsp[0].A).val;(yyval.A).is_dig=(yyvsp[0].A).is_dig;}
+#line 2190 "y.tab.c"
+    break;
+
+  case 53:
+#line 504 "parser.y"
+        {(yyval.A).addr = gen_addr((yyvsp[0].text)); (yyval.A).code = code_gen(1," ");if(!look_up_sym_tab((yyvsp[0].text))){printf("Undeclared variable %s\n", (yyvsp[0].text)); YYERROR;} (yyval.A).optimized_code = (yyval.A).code;(yyval.A).is_dig=0;}
+#line 2196 "y.tab.c"
+    break;
+
+  case 54:
+#line 505 "parser.y"
+            {(yyval.A).addr = gen_addr((yyvsp[0].text)); (yyval.A).code = code_gen(1," ");(yyval.A).optimized_code = (yyval.A).code; (yyval.A).val = atof((yyvsp[0].text));(yyval.A).is_dig=1;}
+#line 2202 "y.tab.c"
+    break;
+
+  case 55:
+#line 506 "parser.y"
+                     {(yyval.A)= (yyvsp[-1].A);}
+#line 2208 "y.tab.c"
+    break;
+
+  case 56:
+#line 507 "parser.y"
+                  {(yyval.A)=(yyvsp[0].A);}
+#line 2214 "y.tab.c"
+    break;
+
+  case 57:
+#line 508 "parser.y"
+                  {(yyval.A)=(yyvsp[0].A);}
+#line 2220 "y.tab.c"
+    break;
+
+  case 58:
+#line 511 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                               {(yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_concatenate(2,code_gen(5,(yyval.A).addr,"=",(yyvsp[-2].text),(yyvsp[-1].text),(yyvsp[0].text)), code_gen(3,(yyvsp[-2].text),"=",(yyval.A).addr)); 
 								if(!look_up_sym_tab((yyvsp[-2].text))){printf("Undeclared variable %s\n", (yyvsp[-2].text)); YYERROR;}
@@ -2362,6 +2920,7 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 								}
+<<<<<<< HEAD
 #line 2366 "y.tab.c"
     break;
 
@@ -2369,22 +2928,39 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 #line 655 "parser.y"
                                              {(yyval.A).addr = new_temp();
 			   //printf("HELLO\n"); 
+=======
+#line 2232 "y.tab.c"
+    break;
+
+  case 59:
+#line 518 "parser.y"
+                                             {(yyval.A).addr = new_temp(); 
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 								(yyval.A).code = code_concatenate(2,code_gen(5,(yyval.A).addr,"=",(yyvsp[-2].text),(yyvsp[-1].text),(yyvsp[0].text)), code_gen(3,(yyvsp[-2].text),"=",(yyval.A).addr)); 
 								if(!look_up_sym_tab((yyvsp[-2].text))){printf("Undeclared variable %s\n", (yyvsp[-2].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 								}
+<<<<<<< HEAD
 #line 2378 "y.tab.c"
     break;
 
   case 60:
 #line 662 "parser.y"
+=======
+#line 2243 "y.tab.c"
+    break;
+
+  case 60:
+#line 524 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                         {(yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_concatenate(3,(yyvsp[-1].A).code,code_gen(5,(yyval.A).addr,"=",(yyvsp[-4].text),(yyvsp[-3].text),(yyvsp[-1].A).addr), code_gen(3,(yyvsp[-4].text),"=",(yyval.A).addr)); 
 								if(!look_up_sym_tab((yyvsp[-4].text))){printf("Undeclared variable %s\n", (yyvsp[-4].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 								}
+<<<<<<< HEAD
 #line 2389 "y.tab.c"
     break;
 
@@ -2414,6 +2990,37 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 
   case 65:
 #line 676 "parser.y"
+=======
+#line 2254 "y.tab.c"
+    break;
+
+  case 61:
+#line 532 "parser.y"
+                {(yyval.text)="+";}
+#line 2260 "y.tab.c"
+    break;
+
+  case 62:
+#line 533 "parser.y"
+                   {(yyval.text)="-";}
+#line 2266 "y.tab.c"
+    break;
+
+  case 63:
+#line 534 "parser.y"
+                   {(yyval.text)="*";}
+#line 2272 "y.tab.c"
+    break;
+
+  case 64:
+#line 535 "parser.y"
+                   {(yyval.text)="/";}
+#line 2278 "y.tab.c"
+    break;
+
+  case 65:
+#line 538 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                 { (yyval.A).addr = new_temp(); 
 								
 								(yyval.A).code = code_concatenate(2,code_gen(3,(yyvsp[0].text),"=",(yyval.A).addr),code_gen(5,(yyval.A).addr,"=",(yyvsp[0].text),"+","1"));
@@ -2422,65 +3029,113 @@ if(scope[scope_ind-1]>0){update_sym_tab(typ,(yyvsp[-4].text),yylineno,scope[scop
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 							}
+<<<<<<< HEAD
 #line 2426 "y.tab.c"
     break;
 
   case 66:
 #line 684 "parser.y"
+=======
+#line 2289 "y.tab.c"
+    break;
+
+  case 66:
+#line 544 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                 { (yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_concatenate(2,code_gen(5,(yyval.A).addr,"=",(yyvsp[0].text),"+","1"),code_gen(3,(yyvsp[-1].text),"=",(yyval.A).addr));
 								if(!look_up_sym_tab((yyvsp[-1].text))){printf("Undeclared variable %s\n", (yyvsp[-1].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 							}
+<<<<<<< HEAD
 #line 2437 "y.tab.c"
     break;
 
   case 67:
 #line 690 "parser.y"
+=======
+#line 2300 "y.tab.c"
+    break;
+
+  case 67:
+#line 550 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                         {  (yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_concatenate(2,code_gen(5,(yyval.A).addr,"=",(yyvsp[0].text),"-","1"),code_gen(3,(yyvsp[0].text),"=",(yyval.A).addr));
 								if(!look_up_sym_tab((yyvsp[0].text))){printf("Undeclared variable %s\n", (yyvsp[0].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 							}
+<<<<<<< HEAD
 #line 2448 "y.tab.c"
     break;
 
   case 68:
 #line 696 "parser.y"
+=======
+#line 2311 "y.tab.c"
+    break;
+
+  case 68:
+#line 556 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                                 {  (yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_concatenate(2,code_gen(5,(yyval.A).addr,"=",(yyvsp[0].text),"-","1"),code_gen(3,(yyvsp[-1].text),"=",(yyval.A).addr));
 								if(!look_up_sym_tab((yyvsp[-1].text))){printf("Undeclared variable %s\n", (yyvsp[-1].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 							}
+<<<<<<< HEAD
 #line 2459 "y.tab.c"
     break;
 
   case 69:
 #line 702 "parser.y"
+=======
+#line 2322 "y.tab.c"
+    break;
+
+  case 69:
+#line 562 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                        {  (yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_gen(4,(yyval.A).addr,"=",(yyvsp[-1].text),(yyvsp[0].text)); 
 								if(!look_up_sym_tab((yyvsp[-1].text))){printf("Undeclared variable %s\n", (yyvsp[-1].text)); YYERROR;}
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=0;
 							}
+<<<<<<< HEAD
 #line 2470 "y.tab.c"
     break;
 
   case 70:
 #line 708 "parser.y"
+=======
+#line 2333 "y.tab.c"
+    break;
+
+  case 70:
+#line 568 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
                                        {  (yyval.A).addr = new_temp(); 
 								(yyval.A).code = code_gen(4,(yyval.A).addr,"=",(yyvsp[-1].text),(yyvsp[0].text)); 
 								(yyval.A).optimized_code = (yyval.A).code;
 								(yyval.A).is_dig=1;
 							}
+<<<<<<< HEAD
 #line 2480 "y.tab.c"
     break;
 
 
 #line 2484 "y.tab.c"
+=======
+#line 2343 "y.tab.c"
+    break;
+
+
+#line 2347 "y.tab.c"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
       default: break;
     }
@@ -2712,7 +3367,11 @@ yyreturn:
 #endif
   return yyresult;
 }
+<<<<<<< HEAD
 #line 714 "parser.y"
+=======
+#line 574 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 void yyerror(const char* arg)
 {
@@ -2767,7 +3426,11 @@ void print_sym_tab()
 		fprintf(fp_sym,"\n\nSymbol Table: \n"); 
 		for(i=0;i<ctr;i++) 	
 		{ 		
+<<<<<<< HEAD
 			fprintf(fp_sym,"Token: %s, Type: %s, Size: %d, Line Number: %d, Scope: %d Value: %s\n \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope,sym_tab[i].symbol_table_value); 	
+=======
+			fprintf(fp_sym,"Token: %s, Type: %s, Size: %d, Line Number: %d, Scope: %d\n \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope); 	
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 		} 
 
 }
@@ -2825,6 +3488,7 @@ int look_up_sym_tab_dec(char* nam, int scop)
 	int i; 
 	for(i=0;i<ctr;i++)
 	{
+		//printf("#### %s ### %s ### %d ### %d \n",sym_tab[i].name,nam,scop,sym_tab[i].scope);
 		if(strcmp(sym_tab[i].name,nam)==0 && sym_tab[i].scope==scop)
 		{
 			return 1;
@@ -3230,27 +3894,42 @@ char* code_gen_oc(int arg_count,...)
 
 int main()
 {
+<<<<<<< HEAD
 
 	
 	printf("\033[1;32m");
 	printf("\n\nParsing Started\n\n");
 	printf("\n\nTokens Generated\n\n");
 	printf("\n\nIntermediate Code generation started\n\n");
+=======
+	//printf("Enter a string\n");
+
+	//yyin=fopen("Input.txt","r");
+	printf("\033[1;32m");
+	printf("\n\nParsing Started\n\n");
+	printf("\n\nTokens Generated\n\n");
+	printf("\n\nIntermediate Code generated\n\n");
+	printf("\n\nOptimized Code generated\n\n");
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	printf("\033[0m");
 	fp_ic        = fopen("Intermediate_code.txt","w");
 	fp_oc		 = fopen("optimized_code.txt","w");
 	fp_sym		 = fopen("symbol_table.txt","w");
 	fp_lex    	 = fopen("tokens.txt","w"); 
 	fp    	 	 = fopen("output.cpp","w"); 
+<<<<<<< HEAD
 	fp_ic_quad   = fopen("Intermediate_quadruple.txt","w"); 
 	fprintf(fp_ic_quad,"INTERMEDIATE CODE QUADRUPLE FORMAT\n");
 	fp_oc_quad   = fopen("Code_optimized_quadruple.txt","w"); 
 	fprintf(fp_oc_quad,"OPTIMIZED CODE QUADRUPLE FORMAT\n");
 
+=======
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	fprintf(fp_lex,"\n\t\t TOKENS LIST\n\n") ;
 	if(!yyparse())
 	{
 		printf("\033[1;32m");
+<<<<<<< HEAD
 		for(int i=0;i<quadlen;i++)
 		{	if(q[i].op!=" ")
 			printf("%s	%s	%s	%s\n",q[i].op,q[i].arg1,q[i].arg2,q[i].res);
@@ -3277,6 +3956,17 @@ int main()
 		printf("\033[0m");
 		
 	}
+=======
+		printf("\n\nParsing Completed\n\n");
+		printf("\033[0m");
+
+	}
+	else
+		{printf("\033[1;31m");
+			printf("\nerror: ");
+			printf("\033[0m");
+		}
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	fclose(fp_ic);
 	fclose(fp_oc);
 	

@@ -2,6 +2,7 @@
 
 OC
 
+<<<<<<< HEAD
 a = 10 
 c = 2 
 L3Label 
@@ -15,3 +16,25 @@ goto L5
 a = 5 
 if c == 2 
 L1Label 
+=======
+a = 11 
+b = 4 
+k = 10.2 
+m = 5 
+c = 1 
+i = 0 
+j = 0 
+i = 10 
+ad = 8 
+if c == 1 goto L8 
+goto L9
+L8: 
+goto L7 
+L9: 
+if c == 3 goto L10 
+goto L11
+L10: 
+goto L7 
+L11: 
+L7: 
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7

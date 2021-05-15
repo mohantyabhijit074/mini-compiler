@@ -13,7 +13,11 @@ extern FILE * fp_lex;
 "#include"(.)*"\n" {;}
 "using"(.)*"\n" {fprintf(yyout, "%s", "");}
 "#define"(.)*"\n" {fprintf(yyout,"%s","");}			
+<<<<<<< HEAD
 "/*"+([^*]|\*+[^/])*\*+\/.*\n			{fprintf(yyout,"%s","");}
+=======
+"/*"+([^*]|\*+[^/])*\*+\/.*\n			{fprintf(yyout,"%s","");printf("\nThe Comment Present in The input file - \n%s\n", yytext);}
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 "//"(.)*(\n)		{;}
 
 "//"[' 'a-zA-Z0-9.]* ;

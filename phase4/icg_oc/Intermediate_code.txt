@@ -2,6 +2,7 @@
 
 IC
 
+<<<<<<< HEAD
  a = 10 
  c = 2 
 goto L3
@@ -17,3 +18,40 @@ if c == 2
 t2 = 10 - 5 
 t2 = a 
 L1Label 
+=======
+t1 = 5 / 4 
+t2 = 10 + t1 
+int a = t2 
+t3 = 12 * 7 
+t4 = t3 - 80 
+int b = t4 
+t5 = 3 * 3.4 
+float k = t5 
+int m = 5 
+int c = 1 
+int i = 0 
+int j = 0 
+int i = 10 
+int ad = 8 
+if j<3 goto L6 
+goto L1 
+L6: 
+if i<5 goto L4 
+goto L2 
+L4: 
+if i<5 goto L4 
+L2: 
+if j<3 goto L6 
+L1: 
+if c == 1 
+goto L9
+L8: 
+goto L7 
+L9: 
+if c == 3 
+goto L11
+L10: 
+goto L7 
+L11: 
+L7: 
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7

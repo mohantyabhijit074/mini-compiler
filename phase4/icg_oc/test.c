@@ -1,22 +1,6 @@
 #include<iostream>
-using namespace std;
 int main()
 {
-<<<<<<< HEAD
-	int a = 10;
-	int c = 2;
-	switch(c)
-	{
-		case 1:
-			a = 10+5;
-			break;
-		case 2:
-			a = 10-5;
-			break;
-	}    
-	int b = 1;
-}
-=======
 	//Single line comment
 	int a=10+5/4;
 	int b=12*7-80;
@@ -38,9 +22,12 @@ int main()
 	*/
 	for(int j=0;j<3;j++)
 	{
-		for(int i=0;i<5;i++)
+		k+=1;
 		{
-            
+			for(int i=0;i<5;i++)
+			{
+
+			}
 		}
 	}
     switch(c)
@@ -54,4 +41,3 @@ int main()
 	}
 	
 }
->>>>>>> 067e737240350e5e37158df3478b42bee0c318e7

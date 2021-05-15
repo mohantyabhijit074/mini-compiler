@@ -960,7 +960,11 @@ case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
 #line 16 "lexical_analyser.l"
+<<<<<<< HEAD
 {fprintf(yyout,"%s","");}
+=======
+{fprintf(yyout,"%s","");printf("\nThe Comment Present in The input file - \n%s\n", yytext);}
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	YY_BREAK
 case 5:
 /* rule 5 can match eol */

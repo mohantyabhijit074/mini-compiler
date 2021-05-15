@@ -18,6 +18,12 @@ FILE *fp_lex;
 FILE *fp_ic_quad;
 FILE *fp_oc_quad;
 
+FILE *fp_oc;
+FILE *fp_ic;
+FILE *fp_sym;
+FILE *fp;
+FILE *fp_lex;
+
 extern int yylineno;
 
 int t=0;
@@ -94,11 +100,19 @@ quad Q[100];
 %token <A> T_MAIN T_RETURN T_DEFAULT T_CASE T_COLON
 %type <var_type> Type 
 %type <text> relOp s_op
+<<<<<<< HEAD
 %type <A> F T E assign_expr1 assign_expr relexp cond decl s_operation unary_expr iter_stat stat comp_stat start jump_stat select_stat ST C B D assign_expr_for 
 %% 
 
 start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                             
 									{ 
+=======
+%type <A> F T E assign_expr1 assign_expr relexp cond decl s_operation unary_expr iter_stat stat comp_stat start jump_stat select_stat ST C B D Varlist 
+%% 
+
+start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat                                             
+									{ //printf("Here\n");
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 										$$=$5; print_sym_tab(); 
 										char* code1 = (char*)malloc(strlen($$.code)); 
 										char* code2 = (char*)malloc(strlen($$.optimized_code));
@@ -118,7 +132,11 @@ start:T_INT T_MAIN T_OPEN T_CLOSE comp_stat
 
 comp_stat: T_OPBRACE {scope_ctr++;scope[scope_ind++]=scope_ctr;} stat T_CLBRACE {$$=$3; scope[scope_ind++]=0; $$.optimized_code = $3.optimized_code;}
 		 ;
+<<<<<<< HEAD
 	
+=======
+		 
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 stat:E T_SC stat               {$$.code = code_concatenate(2,$1.code,$3.code); 
                                $$.optimized_code = code_concatenate(2,$1.optimized_code, $3.optimized_code);}
     | assign_expr stat        {$$.code = code_concatenate(2,$1.code,$2.code); 
@@ -157,6 +175,7 @@ B   : C         {$$=$1;}
     | C B       {$$.code = code_concatenate(2,$1.code, $2.code); $$.optimized_code = code_concatenate(2,$1.optimized_code, $2.optimized_code);}
     ;
     
+<<<<<<< HEAD
 C   : T_CASE T_NUM T_COLON stat      {
 								
 								char* lab1 = new_label();
@@ -166,6 +185,12 @@ C   : T_CASE T_NUM T_COLON stat      {
 								$$.optimized_code =code_concatenate(6,code_gen_oc(2, lab2,"Label"),code_gen_oc(2, lab2,"goto"), " goto ",lab2,$4.optimized_code,code_gen_oc(4,"if ",$<text>-2," == ",$2), code_gen_oc(2,lab1,"Label"));
 								
 								 code_gen(2,"goto ",stack[top]);
+=======
+C   : T_CASE T_NUM T_COLON stat      {char* lab1 = new_label();
+								char* lab2 = new_label(); 
+								$$.code = code_concatenate(6,code_gen(4,"if ",$<text>-2," == ",$2," goto ", lab1), " goto ",lab2, code_gen(2,lab1,": "),$4.code, code_gen(2,lab2,": "));
+								$$.optimized_code =code_concatenate(6,code_gen(6,"if ",$<text>-2," == ",$2," goto ", lab1), " goto ",lab2, code_gen(2, lab1,": "),$4.optimized_code, code_gen(2,lab2,": "));
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 								}
     ;
 
@@ -412,13 +437,22 @@ assign_expr1:T_ID T_ASSIGN E T_COMMA assign_expr1    {$$.addr = gen_addr($1);
 										if($3.is_dig)
 			   								$$.optimized_code = code_concatenate(2,code_gen_oc(3,$$.addr," = ",buf),$5.optimized_code);
 			   							else
+<<<<<<< HEAD
 			   								$$.optimized_code = code_concatenate(3,$3.optimized_code,code_gen_oc(3,$$.addr," = ",$3.addr),$5.optimized_code);
+=======
+			   								$$.optimized_code = code_concatenate(3,$3.optimized_code,code_gen(3,$$.addr," = ",$3.addr),$5.optimized_code);
+			   							//$$.optimized_code = code_concatenate(2,code_gen(5,typ," ",$$.addr," = ",buf),$5.optimized_code);
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 			   							if(look_up_sym_tab_dec($1,scope[scope_ind-1])){ yyerror("Redeclaration\n");  YYERROR;flag1=1; }
 
 if(scope[scope_ind-1]>0){update_sym_tab(typ,$1,yylineno,scope[scope_ind-1]);}else{int scop=get_scope();update_sym_tab(typ,$1,yylineno,scop);}
 			   							}
 		   |T_ID T_ASSIGN E T_SC          {  $$.addr = gen_addr($1);  
+<<<<<<< HEAD
 		   								char symbol_buffer[10];
+=======
+		   								
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 		   								if(strcmp(typ,"int")==0)
 		   								{
 		   									if(is_digit($3.addr))
@@ -765,7 +799,11 @@ void print_sym_tab()
 		fprintf(fp_sym,"\n\nSymbol Table: \n"); 
 		for(i=0;i<ctr;i++) 	
 		{ 		
+<<<<<<< HEAD
 			fprintf(fp_sym,"Token: %s, Type: %s, Size: %d, Line Number: %d, Scope: %d Value: %s\n \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope,sym_tab[i].symbol_table_value); 	
+=======
+			fprintf(fp_sym,"Token: %s, Type: %s, Size: %d, Line Number: %d, Scope: %d\n \n",sym_tab[i].name, sym_tab[i].type, sym_tab[i].width,sym_tab[i].line_num,sym_tab[i].scope); 	
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 		} 
 
 }
@@ -823,6 +861,7 @@ int look_up_sym_tab_dec(char* nam, int scop)
 	int i; 
 	for(i=0;i<ctr;i++)
 	{
+		//printf("#### %s ### %s ### %d ### %d \n",sym_tab[i].name,nam,scop,sym_tab[i].scope);
 		if(strcmp(sym_tab[i].name,nam)==0 && sym_tab[i].scope==scop)
 		{
 			return 1;
@@ -1228,27 +1267,42 @@ char* code_gen_oc(int arg_count,...)
 
 int main()
 {
+<<<<<<< HEAD
 
 	
 	printf("\033[1;32m");
 	printf("\n\nParsing Started\n\n");
 	printf("\n\nTokens Generated\n\n");
 	printf("\n\nIntermediate Code generation started\n\n");
+=======
+	//printf("Enter a string\n");
+
+	//yyin=fopen("Input.txt","r");
+	printf("\033[1;32m");
+	printf("\n\nParsing Started\n\n");
+	printf("\n\nTokens Generated\n\n");
+	printf("\n\nIntermediate Code generated\n\n");
+	printf("\n\nOptimized Code generated\n\n");
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	printf("\033[0m");
 	fp_ic        = fopen("Intermediate_code.txt","w");
 	fp_oc		 = fopen("optimized_code.txt","w");
 	fp_sym		 = fopen("symbol_table.txt","w");
 	fp_lex    	 = fopen("tokens.txt","w"); 
 	fp    	 	 = fopen("output.cpp","w"); 
+<<<<<<< HEAD
 	fp_ic_quad   = fopen("Intermediate_quadruple.txt","w"); 
 	fprintf(fp_ic_quad,"INTERMEDIATE CODE QUADRUPLE FORMAT\n");
 	fp_oc_quad   = fopen("Code_optimized_quadruple.txt","w"); 
 	fprintf(fp_oc_quad,"OPTIMIZED CODE QUADRUPLE FORMAT\n");
 
+=======
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	fprintf(fp_lex,"\n\t\t TOKENS LIST\n\n") ;
 	if(!yyparse())
 	{
 		printf("\033[1;32m");
+<<<<<<< HEAD
 		for(int i=0;i<quadlen;i++)
 		{	if(q[i].op!=" ")
 			printf("%s	%s	%s	%s\n",q[i].op,q[i].arg1,q[i].arg2,q[i].res);
@@ -1275,6 +1329,17 @@ int main()
 		printf("\033[0m");
 		
 	}
+=======
+		printf("\n\nParsing Completed\n\n");
+		printf("\033[0m");
+
+	}
+	else
+		{printf("\033[1;31m");
+			printf("\nerror: ");
+			printf("\033[0m");
+		}
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 	fclose(fp_ic);
 	fclose(fp_oc);
 	

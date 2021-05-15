@@ -149,7 +149,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
+<<<<<<< HEAD
 #line 77 "parser.y"
+=======
+#line 45 "parser.y"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 char* var_type; 
 	char* text; 
 	struct attributes{
@@ -165,7 +169,11 @@ char* var_type;
 	int is_dig;
 	}A;
 
+<<<<<<< HEAD
 #line 169 "y.tab.h"
+=======
+#line 168 "y.tab.h"
+>>>>>>> 067e737240350e5e37158df3478b42bee0c318e7
 
 };
 typedef union YYSTYPE YYSTYPE;
