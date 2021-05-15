@@ -1,0 +1,15 @@
+OPTIMIZED CODE QUADRUPLE FORMAT
+ =  	10 	(null) 	a
+ =  	2 	(null) 	c
+c 	1 	(null) 	if 
+goto 	(null) 	(null) 	L3
+Label 	(null) 	(null) 	L3
+ =  	15 	(null) 	a
+goto 	(null)	(null) 	L1
+c 	2 	(null) 	if 
+goto 	(null) 	(null) 	L5
+Label 	(null) 	(null) 	L5
+ =  	5 	(null) 	a
+goto 	(null)	(null) 	L1
+Label 	(null) 	(null) 	L1
+ =	1	(null)	b	
