@@ -11,3 +11,5 @@ Token: d, Type: int, Size: 4, Line Number: 8, Scope: 2
  
 Token: i, Type: int, Size: 4, Line Number: 10, Scope: 1
  
+Token: k, Type: int, Size: 4, Line Number: 15, Scope: 4
+ 

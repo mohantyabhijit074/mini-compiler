@@ -102,6 +102,22 @@ Children: i 10
 
 
 Root: Statement
+Children: Statement Statement 
+
+
+Root: Statement
+Children: Assignment_expression    
+
+
+Root: Assignment_expression
+Children: int = 
+
+
+Root: =
+Children: k 10 
+
+
+Root: Statement
 Children: Switch    
 
 

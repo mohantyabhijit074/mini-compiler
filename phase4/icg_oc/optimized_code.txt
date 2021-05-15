@@ -1,0 +1,17 @@
+
+
+OC
+
+a = 10 
+c = 2 
+L3Label 
+L3goto 
+goto L3
+a = 15 
+if c == 1 
+L5Label 
+L5goto 
+goto L5
+a = 5 
+if c == 2 
+L1Label 

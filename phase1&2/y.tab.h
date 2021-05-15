@@ -49,109 +49,73 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    T_DOT = 258,
-    T_SINGLE = 259,
-    T_SC = 260,
-    T_COMMA = 261,
-    T_LETTER = 262,
-    T_OPBRACE = 263,
-    T_CLBRACE = 264,
-    T_CONTINUE = 265,
-    T_BREAK = 266,
-    T_POW = 267,
-    T_OPEN = 268,
-    T_CLOSE = 269,
-    T_COMMENT = 270,
-    T_SQ_OPEN = 271,
-    T_SQ_CLOSE = 272,
-    T_INT = 273,
-    T_FLOAT = 274,
-    T_CHAR = 275,
-    T_ID = 276,
-    T_NUM = 277,
-    T_PLUS = 278,
-    T_MINUS = 279,
-    T_MULT = 280,
-    T_DIV = 281,
-    T_AND = 282,
-    T_OR = 283,
-    T_LESS = 284,
-    T_GREAT = 285,
-    T_LESEQ = 286,
-    T_GRTEQ = 287,
-    T_NOTEQ = 288,
-    T_EQEQ = 289,
-    T_ASSIGN = 290,
-    T_SPLUS = 291,
-    T_SMINUS = 292,
-    T_SMULT = 293,
-    T_SDIV = 294,
-    T_INC = 295,
-    T_DEC = 296,
-    T_SWITCH = 297,
-    T_FOR = 298,
-    T_MAIN = 299,
-    T_RETURN = 300,
-    T_DEFAULT = 301,
-    T_CASE = 302,
-    T_COLON = 303
+    T_double = 258,
+    T_void = 259,
+    T_break = 260,
+    T_continue = 261,
+    T_string = 262,
+    T_fltEval = 263,
+    T_for = 264,
+    T_cout = 265,
+    T_ostream = 266,
+    T_switch = 267,
+    T_incr = 268,
+    T_decr = 269,
+    T_relop = 270,
+    T_intval = 271,
+    T_fltval = 272,
+    T_id = 273,
+    T_int = 274,
+    T_char = 275,
+    T_float = 276,
+    T_charval = 277,
+    T_main = 278,
+    T_return = 279,
+    T_default = 280,
+    T_case = 281,
+    T_colon = 282
   };
 #endif
 /* Tokens.  */
-#define T_DOT 258
-#define T_SINGLE 259
-#define T_SC 260
-#define T_COMMA 261
-#define T_LETTER 262
-#define T_OPBRACE 263
-#define T_CLBRACE 264
-#define T_CONTINUE 265
-#define T_BREAK 266
-#define T_POW 267
-#define T_OPEN 268
-#define T_CLOSE 269
-#define T_COMMENT 270
-#define T_SQ_OPEN 271
-#define T_SQ_CLOSE 272
-#define T_INT 273
-#define T_FLOAT 274
-#define T_CHAR 275
-#define T_ID 276
-#define T_NUM 277
-#define T_PLUS 278
-#define T_MINUS 279
-#define T_MULT 280
-#define T_DIV 281
-#define T_AND 282
-#define T_OR 283
-#define T_LESS 284
-#define T_GREAT 285
-#define T_LESEQ 286
-#define T_GRTEQ 287
-#define T_NOTEQ 288
-#define T_EQEQ 289
-#define T_ASSIGN 290
-#define T_SPLUS 291
-#define T_SMINUS 292
-#define T_SMULT 293
-#define T_SDIV 294
-#define T_INC 295
-#define T_DEC 296
-#define T_SWITCH 297
-#define T_FOR 298
-#define T_MAIN 299
-#define T_RETURN 300
-#define T_DEFAULT 301
-#define T_CASE 302
-#define T_COLON 303
+#define T_double 258
+#define T_void 259
+#define T_break 260
+#define T_continue 261
+#define T_string 262
+#define T_fltEval 263
+#define T_for 264
+#define T_cout 265
+#define T_ostream 266
+#define T_switch 267
+#define T_incr 268
+#define T_decr 269
+#define T_relop 270
+#define T_intval 271
+#define T_fltval 272
+#define T_id 273
+#define T_int 274
+#define T_char 275
+#define T_float 276
+#define T_charval 277
+#define T_main 278
+#define T_return 279
+#define T_default 280
+#define T_case 281
+#define T_colon 282
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 77 "parser.y"
-char* var_type; 
-	char* text; 
+#line 65 "parser.y"
+
+	int          ival;
+	float        fval;
+	double       dval;
+	char 	     cval;
+	struct symbol_table* ptr;
+	char* var_type; 
+	char* text;
 	struct attributes{
 	char* code; 
 	char* optimized_code;
@@ -160,12 +124,11 @@ char* var_type;
 	char* next_lab;
 	char* next;
 	char* addr;
-	char* temp;
 	float val;
 	int is_dig;
-	}A;
+}A;
 
-#line 169 "y.tab.h"
+#line 132 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
